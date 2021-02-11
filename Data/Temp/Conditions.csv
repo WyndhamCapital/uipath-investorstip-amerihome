@@ -1,0 +1,35 @@
+Loan #,Condition Name,Description,Category,Sub Category,Date Added, Date Revised, Age, Stage,Status,Document Name,File Name,File Size,File Upload Date,Time of Upload,Uploaded By
+1500678193,GEN007,Provide A Payment History Reflecting All Activity From Initial Loan Disbursement Date Through Today's Date. ,Misc,,1/14/2021,,27,,Fulfilled
+1500678193,NOT240,"Pending Collateral Validation By Custodian, Additional Conditions May Apply. As An Option, Providing A Tracking Number May Help Facilitate Custodial Review.",Ops,Collateral,11/30/2020,,71,Pre-Purchase,Fulfilled
+1500678193,LE02,Loan estimate was delivered electronically. Provide evidence the applicant consented to electronic delivery dated on or before the date of borrower acknowledgment.,Ops,Disclosures,12/2/2020,,70,Pre-Purchase,Fulfilled
+1500678193,AGE01,This Loan Is Aged 25 Business Days or more. Provide Documentation To Satisfy All Outstanding Conditions Within 5 Business Days To Avoid Loan Withdrawal By Amerihome. ,Ops,Risk,1/6/2021,,35,Pre-Purchase,Fulfilled
+1500678193,APPRAGE2,Provide A Recertification Of Value On From 1004d/442. This Appraisal Is Aged As The Loan Was Not Purchased Within 75 Days Of The Note Date. ,Ops,Risk,2/3/2021,,7,Pre-Purchase,Waived
+1500678193,InTx010,"REVISED (01/06) Received the HOI policy, however, the proof of payment is missing. Please provide the proof of payment of $2,009.78 has been paid in full. If paid from the escrow account please provide a payment history showing the disbursement. 
+
+
+Provide An Updated Insurance Policy / Binder.  The Policy / Binder For Required Hazard Insurance, H06 Or Flood Insurance (Excluding The Master Policy For Condo Or Pud) Expires Within 45 Days.",Ops,Tax/insurance,12/29/2020,,42,PrePurchase,Fulfilled
+1500678193,DISASTR1,""REVISED(12/4): Received  Disaster However Disaster is the same one in file  with the inspection date of 11/7/2020 and the end date of the disaster is 11/17/2020 ,please provide clarification or the correct documation.
+
+ORG:
+This Property Is Located In A Zip Code/County Declared As A Disaster Area. Please Provide A Property Inspection Indicating That The Property Is Free From Damage.",Property,,12/1/2020,,71,,Fulfilled,Docs For Conditions,Docusign.pdf,29KB,12/3/2020, 3:16:39 PM EST,"White, Jared"
+1500678193,DISASTR1,""REVISED(12/4): Received  Disaster However Disaster is the same one in file  with the inspection date of 11/7/2020 and the end date of the disaster is 11/17/2020 ,please provide clarification or the correct documation.
+
+ORG:
+This Property Is Located In A Zip Code/County Declared As A Disaster Area. Please Provide A Property Inspection Indicating That The Property Is Free From Damage.",Property,,12/1/2020,,71,,Fulfilled,Docs For Conditions,"HQ201091997-Talley, William V1.pdf",1487KB,12/3/2020, 3:22:44 PM EST,"White, Jared"
+1500678193,DISASTR1,""REVISED(12/4): Received  Disaster However Disaster is the same one in file  with the inspection date of 11/7/2020 and the end date of the disaster is 11/17/2020 ,please provide clarification or the correct documation.
+
+ORG:
+This Property Is Located In A Zip Code/County Declared As A Disaster Area. Please Provide A Property Inspection Indicating That The Property Is Free From Damage.",Property,,12/1/2020,,71,,Fulfilled,Docs For Conditions,1004D.pdf,1156KB,12/29/2020, 2:29:02 PM EST,"White, Jared"
+1500678193,DISASTR1,""REVISED(12/4): Received  Disaster However Disaster is the same one in file  with the inspection date of 11/7/2020 and the end date of the disaster is 11/17/2020 ,please provide clarification or the correct documation.
+
+ORG:
+This Property Is Located In A Zip Code/County Declared As A Disaster Area. Please Provide A Property Inspection Indicating That The Property Is Free From Damage.",Property,,12/1/2020,,71,,Fulfilled,Docs For Conditions,Talley Renewal EOI.pdf,1894KB,1/6/2021, 1:50:55 PM EST,"White, Jared"
+1500678193,DISASTR1,""REVISED(12/4): Received  Disaster However Disaster is the same one in file  with the inspection date of 11/7/2020 and the end date of the disaster is 11/17/2020 ,please provide clarification or the correct documation.
+
+ORG:
+This Property Is Located In A Zip Code/County Declared As A Disaster Area. Please Provide A Property Inspection Indicating That The Property Is Free From Damage.",Property,,12/1/2020,,71,,Fulfilled,Docs For Conditions,Talley EOI.pdf,1895KB,2/8/2021, 1:30:58 PM EST,"Crane, Randy"
+1500678193,DISASTR1,""REVISED(12/4): Received  Disaster However Disaster is the same one in file  with the inspection date of 11/7/2020 and the end date of the disaster is 11/17/2020 ,please provide clarification or the correct documation.
+
+ORG:
+This Property Is Located In A Zip Code/County Declared As A Disaster Area. Please Provide A Property Inspection Indicating That The Property Is Free From Damage.",Property,,12/1/2020,,71,,Fulfilled,Docs For Conditions,Tally PH.pdf,59KB,2/9/2021, 3:52:29 PM EST,"Crane, Randy"
+1500678193,UWHUD01,Provide CD/HUD-1 from refinance of 5120 Montecito Ave rental property to evidence new P & I of $1582.70 (loan closed 10/26/2020),UW,Hud1,2/3/2021,,7,Pre-Purchase,Added
