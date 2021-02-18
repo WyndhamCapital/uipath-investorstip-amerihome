@@ -5,7 +5,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1206,1937</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1206,1987</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>LoginPennyMac_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="29">
@@ -41,7 +41,7 @@
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="52">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="27">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -71,17 +71,18 @@
       <AssemblyReference>UiPath.Mail</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Login Penny Mac" sap:VirtualizedContainerService.HintSize="568,1832" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Login" sap:VirtualizedContainerService.HintSize="686,1882" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="Username" />
       <Variable x:TypeArguments="ss:SecureString" Name="Password" />
+      <Variable x:TypeArguments="x:String" Name="WebURL" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Sequence DisplayName="Get Credential" sap:VirtualizedContainerService.HintSize="526,245" sap2010:WorkflowViewState.IdRef="Sequence_2">
+    <Sequence DisplayName="Get Credential" sap:VirtualizedContainerService.HintSize="644,336" sap2010:WorkflowViewState.IdRef="Sequence_2">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -89,35 +90,65 @@
       </sap:WorkflowViewStateService.ViewState>
       <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Fetching web credentials...&quot;]" />
       <ui:GetRobotCredential TimeoutMS="{x:Null}" AssetName="[in_Config(&quot;WebCredential&quot;).ToString]" DisplayName="Get Credential" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="GetRobotCredential_1" Password="[Password]" Username="[Username]" />
+      <ui:GetRobotAsset TimeoutMS="{x:Null}" AssetName="[in_Config(&quot;WebURL&quot;).ToString]" DisplayName="Get Web URL" sap:VirtualizedContainerService.HintSize="334,51" sap2010:WorkflowViewState.IdRef="GetRobotAsset_1">
+        <ui:GetRobotAsset.Value>
+          <OutArgument x:TypeArguments="x:String">[WebURL]</OutArgument>
+        </ui:GetRobotAsset.Value>
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </ui:GetRobotAsset>
     </Sequence>
-    <Sequence DisplayName="Authenticate Pennymac" sap:VirtualizedContainerService.HintSize="526,838" sap2010:WorkflowViewState.IdRef="Sequence_3">
+    <Sequence DisplayName="Authenticate Pennymac" sap:VirtualizedContainerService.HintSize="644,1308" sap2010:WorkflowViewState.IdRef="Sequence_3">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="467,91" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Authenticating web application...&quot;]" />
-      <ui:OpenBrowser CommunicationMethod="{x:Null}" Hidden="{x:Null}" NewSession="{x:Null}" Private="{x:Null}" UiBrowser="{x:Null}" BrowserType="Chrome" DisplayName="Open Chrome" sap:VirtualizedContainerService.HintSize="467,615" sap2010:WorkflowViewState.IdRef="OpenBrowser_1" Url="[in_Config(&quot;WebURL&quot;).ToString]">
+      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="602,91" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Authenticating web application...&quot;]" />
+      <ui:OpenBrowser CommunicationMethod="{x:Null}" Hidden="{x:Null}" NewSession="{x:Null}" Private="{x:Null}" UiBrowser="{x:Null}" BrowserType="Chrome" DisplayName="Open Chrome" sap:VirtualizedContainerService.HintSize="602,1085" sap2010:WorkflowViewState.IdRef="OpenBrowser_1" Url="[WebURL]">
         <ui:OpenBrowser.Body>
           <ActivityAction x:TypeArguments="x:Object">
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
             </ActivityAction.Argument>
-            <Sequence DisplayName="Authenticate" sap:VirtualizedContainerService.HintSize="376,514" sap2010:WorkflowViewState.IdRef="Sequence_4">
+            <Sequence DisplayName="Authenticate" sap:VirtualizedContainerService.HintSize="568,984" sap2010:WorkflowViewState.IdRef="Sequence_4">
+              <Sequence.Variables>
+                <Variable x:TypeArguments="ui:Window" Name="BrowserWindow" />
+              </Sequence.Variables>
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   <x:Boolean x:Key="IsPinned">False</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <Sequence DisplayName="Check if page is down" sap:VirtualizedContainerService.HintSize="334,66" sap2010:WorkflowViewState.IdRef="Sequence_6">
+              <ui:GetActiveWindow ApplicationWindow="[BrowserWindow]" DisplayName="Get Active Window" sap:VirtualizedContainerService.HintSize="526,51" sap2010:WorkflowViewState.IdRef="GetActiveWindow_1">
+                <ui:GetActiveWindow.Body>
+                  <ActivityAction x:TypeArguments="x:Object">
+                    <ActivityAction.Argument>
+                      <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+                    </ActivityAction.Argument>
+                    <ui:MaximizeWindow DisplayName="Maximize Window" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="MaximizeWindow_1" Window="[BrowserWindow]" />
+                  </ActivityAction>
+                </ui:GetActiveWindow.Body>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </ui:GetActiveWindow>
+              <Sequence DisplayName="Check if page is down" sap:VirtualizedContainerService.HintSize="526,445" sap2010:WorkflowViewState.IdRef="Sequence_6">
                 <Sequence.Variables>
                   <Variable x:TypeArguments="x:Boolean" Default="False" Name="IsLoginButton" />
                 </Sequence.Variables>
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     <x:Boolean x:Key="IsPinned">False</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
@@ -135,11 +166,11 @@
                 </ui:UiElementExists>
                 <If Condition="[IsLoginButton = False]" DisplayName="Check if login button is found" sap:VirtualizedContainerService.HintSize="484,207" sap2010:WorkflowViewState.IdRef="If_2">
                   <If.Then>
-                    <Throw DisplayName="Throw System Exception" Exception="[new SystemException(in_Config(&quot;PennymacURL&quot;).ToString + &quot; is down&quot;)]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Throw_2" />
+                    <Throw DisplayName="Throw System Exception" Exception="[new SystemException(&quot;Amerihome portal is down or inaccessible.&quot;)]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Throw_2" />
                   </If.Then>
                 </If>
               </Sequence>
-              <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" ContinueOnError="True" DisplayName="Close Dialog" sap:VirtualizedContainerService.HintSize="334,51" sap2010:WorkflowViewState.IdRef="Click_1" KeyModifiers="None" MouseButton="BTN_LEFT">
+              <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" ContinueOnError="True" DisplayName="Close Dialog" sap:VirtualizedContainerService.HintSize="526,51" sap2010:WorkflowViewState.IdRef="Click_1" KeyModifiers="None" MouseButton="BTN_LEFT">
                 <ui:Click.CursorPosition>
                   <ui:CursorPosition Position="Center">
                     <ui:CursorPosition.OffsetX>
@@ -164,7 +195,7 @@
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
               </ui:Click>
-              <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DelayBetweenKeys="0" DisplayName="Type Username" EmptyField="True" sap:VirtualizedContainerService.HintSize="334,51" sap2010:WorkflowViewState.IdRef="TypeInto_1" Text="[Username]">
+              <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DelayBetweenKeys="0" DisplayName="Type Username" EmptyField="True" sap:VirtualizedContainerService.HintSize="526,51" sap2010:WorkflowViewState.IdRef="TypeInto_1" Text="[Username]">
                 <ui:TypeInto.Target>
                   <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="fb895137-834c-40a1-b1ac-fad41dc915b1" InformativeScreenshot="61704823d5d98a72908a257e1d7d3588" Selector="&lt;html app='chrome.exe' title='TPO Connect' /&gt;&lt;webctrl src='https://connect.amerihome.com/loginredirect.html?' tag='IFRAME' /&gt;&lt;webctrl id='userId' tag='INPUT' /&gt;">
                     <ui:Target.TimeoutMS>
@@ -182,7 +213,7 @@
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
               </ui:TypeInto>
-              <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DelayBetweenKeys="0" DisplayName="Type Password" EmptyField="True" sap:VirtualizedContainerService.HintSize="334,134" sap2010:WorkflowViewState.IdRef="TypeInto_2" Text="[new System.Net.NetworkCredential(string.Empty, Password).Password + &quot;[k(enter)]&quot;]">
+              <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DelayBetweenKeys="0" DisplayName="Type Password" EmptyField="True" sap:VirtualizedContainerService.HintSize="526,134" sap2010:WorkflowViewState.IdRef="TypeInto_2" Text="[new System.Net.NetworkCredential(string.Empty, Password).Password + &quot;[k(enter)]&quot;]">
                 <ui:TypeInto.Target>
                   <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="fb895137-834c-40a1-b1ac-fad41dc915b1" InformativeScreenshot="ed59ead13d1b072ed23f1323dc4a231c" Selector="&lt;html app='chrome.exe' title='TPO Connect' /&gt;&lt;webctrl src='https://connect.amerihome.com/loginredirect.html?' tag='IFRAME' /&gt;&lt;webctrl tag='INPUT' type='password' /&gt;">
                     <ui:Target.TimeoutMS>
@@ -205,13 +236,13 @@
         </sap:WorkflowViewStateService.ViewState>
       </ui:OpenBrowser>
     </Sequence>
-    <Sequence DisplayName="Check Credentials" sap:VirtualizedContainerService.HintSize="526,577" sap2010:WorkflowViewState.IdRef="Sequence_5">
+    <Sequence DisplayName="Check Credentials" sap:VirtualizedContainerService.HintSize="644,66" sap2010:WorkflowViewState.IdRef="Sequence_5">
       <Sequence.Variables>
         <Variable x:TypeArguments="x:String" Name="ErrorMsg" />
       </Sequence.Variables>
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
@@ -236,7 +267,7 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
         <If.Then>
-          <Throw DisplayName="Throw System Exception" Exception="[new SystemException(ErrorMsg)]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Throw_1" />
+          <Throw DisplayName="Throw System Exception" Exception="[new SystemException(&quot;Amerihome username/password is invalid.&quot;)]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Throw_1" />
         </If.Then>
       </If>
     </Sequence>

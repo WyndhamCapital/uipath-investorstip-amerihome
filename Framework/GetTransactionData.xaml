@@ -11,7 +11,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1206,2145</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1206,1550</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>GetTransactionData_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -90,143 +90,71 @@
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Get a transaction item from a specified source (e.g., Orchestrator queues, spreadsheets, databases, mailboxes or web APIs). &#xA;&#xA;If there are no transaction items remaining, out_TransactionItem is set to Nothing, which leads to the End Process state. &#xA;&#xA;For cases in which there is only a single transaction (i.e., a linear process), use an If activity to check whether the argument in_TransactionNumber has the value 1 (meaning it is the first and only transaction) and assign the transaction item to out_TransactionItem. For any other value of in_TransactionNumber, out_TransactionItem should be set to Nothing.&#xA;&#xA;If there are multiple transactions, use the argument in_TransactionNumber as an index to retrieve the correct transaction to be processed. If there are no more transactions left, it is necessary to set out_TransactionItem to Nothing, thus ending the process." DisplayName="Get Transaction Data" sap:VirtualizedContainerService.HintSize="663,2040" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Get a transaction item from a specified source (e.g., Orchestrator queues, spreadsheets, databases, mailboxes or web APIs). &#xA;&#xA;If there are no transaction items remaining, out_TransactionItem is set to Nothing, which leads to the End Process state. &#xA;&#xA;For cases in which there is only a single transaction (i.e., a linear process), use an If activity to check whether the argument in_TransactionNumber has the value 1 (meaning it is the first and only transaction) and assign the transaction item to out_TransactionItem. For any other value of in_TransactionNumber, out_TransactionItem should be set to Nothing.&#xA;&#xA;If there are multiple transactions, use the argument in_TransactionNumber as an index to retrieve the correct transaction to be processed. If there are no more transactions left, it is necessary to set out_TransactionItem to Nothing, thus ending the process." DisplayName="Get Transaction Data" sap:VirtualizedContainerService.HintSize="611,1445" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <If Condition="[io_TransactionData Is Nothing]" DisplayName="Check if transaction data is nothing, fetch pipeline data if needed" sap:VirtualizedContainerService.HintSize="621,809" sap2010:WorkflowViewState.IdRef="If_4">
+    <If Condition="[io_TransactionData Is Nothing]" DisplayName="Check if transaction data is nothing, fetch pipeline data if needed" sap:VirtualizedContainerService.HintSize="569,214" sap2010:WorkflowViewState.IdRef="If_4">
       <If.Then>
-        <Sequence DisplayName="Extract Pipeline Data" sap:VirtualizedContainerService.HintSize="476,661" sap2010:WorkflowViewState.IdRef="Sequence_4">
+        <Sequence DisplayName="Extract Pipeline Data" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_6">
+          <Sequence.Variables>
+            <Variable x:TypeArguments="x:Int32" Name="RetryCount" />
+          </Sequence.Variables>
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Focus Element" sap:VirtualizedContainerService.HintSize="434,51" sap2010:WorkflowViewState.IdRef="Click_1" KeyModifiers="None" MouseButton="BTN_LEFT">
-            <ui:Click.CursorPosition>
-              <ui:CursorPosition Position="Center">
-                <ui:CursorPosition.OffsetX>
-                  <InArgument x:TypeArguments="x:Int32" />
-                </ui:CursorPosition.OffsetX>
-                <ui:CursorPosition.OffsetY>
-                  <InArgument x:TypeArguments="x:Int32" />
-                </ui:CursorPosition.OffsetY>
-              </ui:CursorPosition>
-            </ui:Click.CursorPosition>
-            <ui:Click.Target>
-              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="8a64a957-7426-4fc9-a197-d343222b0a8a" InformativeScreenshot="e245b29d75ced8dd1aa2aa9139c852d9" Selector="&lt;wnd app='encompass.exe' ctrlname='MainForm' /&gt;&lt;wnd ctrlname='mainPanel' /&gt;&lt;wnd ctrlname='MainScreen' /&gt;&lt;wnd ctrlname='pnlMain' /&gt;&lt;wnd ctrlname='tabControl' /&gt;&lt;wnd ctrlname='pipelineTabPage' /&gt;&lt;wnd ctrlname='PipelineScreen' /&gt;&lt;wnd ctrlname='gradientPanel1' /&gt;&lt;wnd ctrlname='cboView' /&gt;">
-                <ui:Target.TimeoutMS>
-                  <InArgument x:TypeArguments="x:Int32" />
-                </ui:Target.TimeoutMS>
-                <ui:Target.WaitForReady>
-                  <InArgument x:TypeArguments="ui:WaitForReady" />
-                </ui:Target.WaitForReady>
-              </ui:Target>
-            </ui:Click.Target>
+          <Assign DisplayName="Set Stop Point" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_10">
+            <Assign.To>
+              <OutArgument x:TypeArguments="x:Int32">[RetryCount]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="x:Int32">10</InArgument>
+            </Assign.Value>
+          </Assign>
+          <ui:InterruptibleWhile Condition="[NOT File.Exists(in_Config(&quot;PipelineDataPath&quot;).ToString) AND RetryCount &gt; 0]" DisplayName="While" sap:VirtualizedContainerService.HintSize="262,51" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_1">
+            <ui:InterruptibleWhile.Body>
+              <Sequence DisplayName="Extract Data" sap:VirtualizedContainerService.HintSize="304,214" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <e:Pipeline_Extractor DisplayName="Pipeline Extractor" FilePath="[Environment.CurrentDirectory + &quot;\&quot; + in_Config(&quot;TempFolderPath&quot;).ToString]" sap:VirtualizedContainerService.HintSize="262,22" sap2010:WorkflowViewState.IdRef="Pipeline_Extractor_2" PipelineView="[in_Config(&quot;EncompassPipelineView&quot;).ToString]" />
+                <Assign DisplayName="Set Stop Point" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_11">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="x:Int32">[RetryCount]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="x:Int32">[RetryCount - 1]</InArgument>
+                  </Assign.Value>
+                </Assign>
+              </Sequence>
+            </ui:InterruptibleWhile.Body>
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-          </ui:Click>
-          <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Focus Element" sap:VirtualizedContainerService.HintSize="434,51" sap2010:WorkflowViewState.IdRef="Click_5" KeyModifiers="None" MouseButton="BTN_LEFT">
-            <ui:Click.CursorPosition>
-              <ui:CursorPosition Position="Center">
-                <ui:CursorPosition.OffsetX>
-                  <InArgument x:TypeArguments="x:Int32" />
-                </ui:CursorPosition.OffsetX>
-                <ui:CursorPosition.OffsetY>
-                  <InArgument x:TypeArguments="x:Int32" />
-                </ui:CursorPosition.OffsetY>
-              </ui:CursorPosition>
-            </ui:Click.CursorPosition>
-            <ui:Click.Target>
-              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="8a64a957-7426-4fc9-a197-d343222b0a8a" InformativeScreenshot="e245b29d75ced8dd1aa2aa9139c852d9" Selector="&lt;wnd app='encompass.exe' ctrlname='MainForm' /&gt;&lt;wnd ctrlname='mainPanel' /&gt;&lt;wnd ctrlname='MainScreen' /&gt;&lt;wnd ctrlname='pnlMain' /&gt;&lt;wnd ctrlname='tabControl' /&gt;&lt;wnd ctrlname='pipelineTabPage' /&gt;&lt;wnd ctrlname='PipelineScreen' /&gt;&lt;wnd ctrlname='gradientPanel1' /&gt;&lt;wnd ctrlname='cboView' /&gt;">
-                <ui:Target.TimeoutMS>
-                  <InArgument x:TypeArguments="x:Int32" />
-                </ui:Target.TimeoutMS>
-                <ui:Target.WaitForReady>
-                  <InArgument x:TypeArguments="ui:WaitForReady" />
-                </ui:Target.WaitForReady>
-              </ui:Target>
-            </ui:Click.Target>
+          </ui:InterruptibleWhile>
+          <ui:ReadRange Range="{x:Null}" AddHeaders="True" DataTable="[io_TransactionData]" DisplayName="Read Pipeline Data" sap:VirtualizedContainerService.HintSize="262,51" sap2010:WorkflowViewState.IdRef="ReadRange_2" SheetName="Table" WorkbookPath="[in_Config(&quot;PipelineDataPath&quot;).ToString]">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-          </ui:Click>
-          <Delay mva:VisualBasic.Settings="{x:Null}" DisplayName="Delay 5 seconds" Duration="00:00:05" sap:VirtualizedContainerService.HintSize="434,22" sap2010:WorkflowViewState.IdRef="Delay_1">
-            <TextExpression.Namespaces>
-              <sco:Collection x:TypeArguments="x:String">
-                <x:String>System.Activities</x:String>
-                <x:String>System.Activities.Statements</x:String>
-                <x:String>System.Activities.Expressions</x:String>
-                <x:String>System.Activities.Validation</x:String>
-                <x:String>System.Activities.XamlIntegration</x:String>
-                <x:String>Microsoft.VisualBasic.Activities</x:String>
-                <x:String>System</x:String>
-                <x:String>System.Collections.Generic</x:String>
-                <x:String>System.Data</x:String>
-                <x:String>System.Diagnostics</x:String>
-                <x:String>System.IO</x:String>
-                <x:String>System.Linq</x:String>
-                <x:String>System.Management.Automation</x:String>
-                <x:String>System.Net.Mail</x:String>
-                <x:String>System.Xml</x:String>
-                <x:String>System.Xml.Linq</x:String>
-                <x:String>UiPath.Library</x:String>
-                <x:String>System.Windows.Markup</x:String>
-              </sco:Collection>
-            </TextExpression.Namespaces>
-            <TextExpression.References>
-              <sco:Collection x:TypeArguments="AssemblyReference">
-                <AssemblyReference>System.Activities</AssemblyReference>
-                <AssemblyReference>mscorlib</AssemblyReference>
-                <AssemblyReference>System.Data</AssemblyReference>
-                <AssemblyReference>System</AssemblyReference>
-                <AssemblyReference>System.Core</AssemblyReference>
-                <AssemblyReference>System.Management.Automation</AssemblyReference>
-                <AssemblyReference>System.Xml</AssemblyReference>
-                <AssemblyReference>System.Xml.Linq</AssemblyReference>
-                <AssemblyReference>UiPath.Library</AssemblyReference>
-                <AssemblyReference>PresentationFramework</AssemblyReference>
-                <AssemblyReference>WindowsBase</AssemblyReference>
-                <AssemblyReference>PresentationCore</AssemblyReference>
-                <AssemblyReference>System.Xaml</AssemblyReference>
-              </sco:Collection>
-            </TextExpression.References>
-            <sap2010:WorkflowViewState.ViewStateManager>
-              <sap2010:ViewStateManager>
-                <sap2010:ViewStateData sap:VirtualizedContainerService.HintSize="200,22" Id="Delay_1" />
-              </sap2010:ViewStateManager>
-            </sap2010:WorkflowViewState.ViewStateManager>
-          </Delay>
-          <ui:OnUiElementAppear ContinueOnError="{x:Null}" FoundElement="{x:Null}" WaitVisible="{x:Null}" DisplayName="Wait For Dropdown" sap:VirtualizedContainerService.HintSize="434,198" sap2010:WorkflowViewState.IdRef="OnUiElementAppear_1" RepeatForever="False" WaitActive="True">
-            <ui:OnUiElementAppear.Body>
-              <e:Pipeline_Extractor DisplayName="Pipeline Extractor" FilePath="[Environment.CurrentDirectory + &quot;\&quot; + in_Config(&quot;TempFolderPath&quot;).ToString]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Pipeline_Extractor_1" PipelineView="UiPath - PC - Amerihome" />
-            </ui:OnUiElementAppear.Body>
-            <ui:OnUiElementAppear.Target>
-              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="6443009e-fbc6-424a-85cf-3deda1a72b32" InformativeScreenshot="439b23a620d0074d5c8af3d8ae20ea40" Selector="&lt;wnd app='encompass.exe' ctrlname='MainForm' /&gt;&lt;wnd ctrlname='mainPanel' /&gt;&lt;wnd ctrlname='MainScreen' /&gt;&lt;wnd ctrlname='pnlMain' /&gt;&lt;wnd ctrlname='tabControl' /&gt;&lt;wnd ctrlname='pipelineTabPage' /&gt;&lt;wnd ctrlname='PipelineScreen' /&gt;&lt;wnd ctrlname='gradientPanel1' /&gt;&lt;wnd ctrlname='cboView' /&gt;">
-                <ui:Target.TimeoutMS>
-                  <InArgument x:TypeArguments="x:Int32" />
-                </ui:Target.TimeoutMS>
-                <ui:Target.WaitForReady>
-                  <InArgument x:TypeArguments="ui:WaitForReady" />
-                </ui:Target.WaitForReady>
-              </ui:Target>
-            </ui:OnUiElementAppear.Target>
-          </ui:OnUiElementAppear>
-          <ui:ReadRange Range="{x:Null}" AddHeaders="True" DataTable="[io_TransactionData]" DisplayName="Read Pipeline Data" sap:VirtualizedContainerService.HintSize="434,87" sap2010:WorkflowViewState.IdRef="ReadRange_1" SheetName="Table" WorkbookPath="[in_Config(&quot;PipelineDataPath&quot;).ToString]" />
+          </ui:ReadRange>
         </Sequence>
       </If.Then>
     </If>
-    <If Condition="[io_TransactionData.Rows.Count &gt; in_TransactionNumber]" DisplayName="Check current iteration with the total number of pipeline data" sap:VirtualizedContainerService.HintSize="621,208" sap2010:WorkflowViewState.IdRef="If_3">
+    <If Condition="[io_TransactionData.Rows.Count &gt; in_TransactionNumber]" DisplayName="Check current iteration with the total number of pipeline data" sap:VirtualizedContainerService.HintSize="569,208" sap2010:WorkflowViewState.IdRef="If_3">
       <If.Then>
         <Assign DisplayName="Set Transaction Item" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_8">
           <Assign.To>

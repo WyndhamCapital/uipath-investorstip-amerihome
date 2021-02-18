@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="NewCondition" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:e="clr-namespace:EncompassLib;assembly=EncompassLib" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="NewCondition" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="out_dtConditions" Type="OutArgument(sd:DataTable)" />
     <x:Property Name="in_LoanNumber" Type="InArgument(x:String)" />
@@ -6,7 +6,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1206,2120</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1206,2607</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>NewCondition_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="60">
@@ -44,6 +44,7 @@
       <x:String>System.Reflection</x:String>
       <x:String>System.Runtime.InteropServices</x:String>
       <x:String>System.Text.RegularExpressions</x:String>
+      <x:String>Microsoft.VisualBasic.CompilerServices</x:String>
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -81,18 +82,17 @@
       <AssemblyReference>EncompassLib_Expressions_56796998</AssemblyReference>
       <AssemblyReference>EncompassLib_Expressions_51642735</AssemblyReference>
       <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Adds the extracted conditions from PennyMac in Encompass. Format for the description would be Published + Status + Type + Description." DisplayName="Add Conditions" sap:VirtualizedContainerService.HintSize="745,2015" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Adds the extracted conditions from PennyMac in Encompass. Format for the description would be Published + Status + Type + Description." DisplayName="Add Conditions" sap:VirtualizedContainerService.HintSize="829,2502" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <e:Pipeline_File_Open Output="{x:Null}" DisplayName="Pipeline File Open" sap:VirtualizedContainerService.HintSize="703,22" sap2010:WorkflowViewState.IdRef="Pipeline_File_Open_1" LoanNumber="[in_LoanNumber]" />
-    <e:Pipeline_File_Open_Popup DisplayName="Pipeline File Open Popup" sap:VirtualizedContainerService.HintSize="703,22" sap2010:WorkflowViewState.IdRef="Pipeline_File_Open_Popup_1" />
-    <Sequence DisplayName="Navigate E-Folder" sap:VirtualizedContainerService.HintSize="703,66" sap2010:WorkflowViewState.IdRef="Sequence_2">
+    <Sequence DisplayName="Navigate E-Folder" sap:VirtualizedContainerService.HintSize="787,66" sap2010:WorkflowViewState.IdRef="Sequence_2">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -120,7 +120,7 @@
         </ui:Click.Target>
       </ui:Click>
     </Sequence>
-    <Sequence DisplayName="Navigate Post-Closing Conditions" sap:VirtualizedContainerService.HintSize="703,66" sap2010:WorkflowViewState.IdRef="Sequence_3">
+    <Sequence DisplayName="Navigate Post-Closing Conditions" sap:VirtualizedContainerService.HintSize="787,66" sap2010:WorkflowViewState.IdRef="Sequence_3">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -151,86 +151,43 @@
         </ui:Click.Target>
       </ui:Click>
     </Sequence>
-    <Sequence DisplayName="Read Conditions" sap:VirtualizedContainerService.HintSize="703,1439" sap2010:WorkflowViewState.IdRef="Sequence_7">
+    <Sequence DisplayName="Read Conditions" sap:VirtualizedContainerService.HintSize="787,2061" sap2010:WorkflowViewState.IdRef="Sequence_7">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <ui:ReadCsvFile Encoding="{x:Null}" DataTable="[out_dtConditions]" Delimitator="Comma" DisplayName="Read CSV" FilePath="Data\Temp\Conditions.csv" sap:VirtualizedContainerService.HintSize="661,152" sap2010:WorkflowViewState.IdRef="ReadCsvFile_1" />
-      <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[out_dtConditions]" DisplayName="For Each Condition" sap:VirtualizedContainerService.HintSize="661,1155" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+      <ui:ReadCsvFile Encoding="{x:Null}" DataTable="[out_dtConditions]" Delimitator="Comma" DisplayName="Read CSV" FilePath="Data\Temp\Conditions.csv" sap:VirtualizedContainerService.HintSize="468,152" sap2010:WorkflowViewState.IdRef="ReadCsvFile_1" />
+      <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[out_dtConditions]" DisplayName="For Each Condition" sap:VirtualizedContainerService.HintSize="468,1777" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
         <ui:ForEachRow.Body>
           <ActivityAction x:TypeArguments="sd:DataRow">
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="sd:DataRow" Name="row" />
             </ActivityAction.Argument>
-            <Sequence DisplayName="Add Row" sap:VirtualizedContainerService.HintSize="611,1007" sap2010:WorkflowViewState.IdRef="Sequence_6">
+            <Sequence DisplayName="Add Row" sap:VirtualizedContainerService.HintSize="418,1629" sap2010:WorkflowViewState.IdRef="Sequence_6">
               <Sequence.Variables>
                 <Variable x:TypeArguments="x:String" Name="Description" />
+                <Variable x:TypeArguments="x:Boolean" Default="False" Name="ToProceed" />
+                <Variable x:TypeArguments="x:String" Name="Status" />
               </Sequence.Variables>
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <If sap2010:Annotation.AnnotationText="Move next row if empty, these are empty rows added by the export." Condition="[String.IsNullOrWhiteSpace(row(0).ToString)]" DisplayName="Check if row is empty" sap:VirtualizedContainerService.HintSize="569,108" sap2010:WorkflowViewState.IdRef="If_2">
+              <Assign DisplayName="Set Description" sap:VirtualizedContainerService.HintSize="376,60" sap2010:WorkflowViewState.IdRef="Assign_2">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:String">[Description]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:String">[row(0).ToString]</InArgument>
+                </Assign.Value>
+              </Assign>
+              <Sequence DisplayName="Add Conditions" sap:VirtualizedContainerService.HintSize="376,621" sap2010:WorkflowViewState.IdRef="Sequence_4">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                    <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                  </scg:Dictionary>
-                </sap:WorkflowViewStateService.ViewState>
-                <If.Then>
-                  <ui:Continue sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Continue_1" />
-                </If.Then>
-              </If>
-              <If sap2010:Annotation.AnnotationText="Check if we reached the last condition, unfortunately export adds the documents in the list." Condition="[row(0).ToString.Trim.ToLower.Equals(&quot;org:&quot;)]" DisplayName="Check if we already reached the last condition" sap:VirtualizedContainerService.HintSize="569,250" sap2010:WorkflowViewState.IdRef="If_3">
-                <sap:WorkflowViewStateService.ViewState>
-                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                    <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                  </scg:Dictionary>
-                </sap:WorkflowViewStateService.ViewState>
-                <If.Then>
-                  <ui:Break sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Break_1" />
-                </If.Then>
-              </If>
-              <If sap2010:Annotation.AnnotationText="AmeriHome export conditions have some inconsistency when exporting the data, some of the rows are missing 2 columns. We are checking if the first row is the loan number, else move the pointer to the next 2 columns." Condition="[row(0).ToString.IsNumeric]" DisplayName="Check if row is in the right format" sap:VirtualizedContainerService.HintSize="569,265" sap2010:WorkflowViewState.IdRef="If_1">
-                <sap:WorkflowViewStateService.ViewState>
-                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                    <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                  </scg:Dictionary>
-                </sap:WorkflowViewStateService.ViewState>
-                <If.Then>
-                  <Assign DisplayName="Set Description" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_2">
-                    <Assign.To>
-                      <OutArgument x:TypeArguments="x:String">[Description]</OutArgument>
-                    </Assign.To>
-                    <Assign.Value>
-                      <InArgument x:TypeArguments="x:String">[row(5).ToString + ". " + row(2).ToString + ". " + row(8).ToString + ". " + row(9).ToString]</InArgument>
-                    </Assign.Value>
-                  </Assign>
-                </If.Then>
-                <If.Else>
-                  <Assign DisplayName="Set Description" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_1">
-                    <Assign.To>
-                      <OutArgument x:TypeArguments="x:String">[Description]</OutArgument>
-                    </Assign.To>
-                    <Assign.Value>
-                      <InArgument x:TypeArguments="x:String">[row(3).ToString + ". " + row(0).ToString + ". " + row(6).ToString + ". " + row(7).ToString]</InArgument>
-                    </Assign.Value>
-                  </Assign>
-                </If.Else>
-              </If>
-              <Sequence DisplayName="Add Conditions" sap:VirtualizedContainerService.HintSize="569,66" sap2010:WorkflowViewState.IdRef="Sequence_4">
-                <sap:WorkflowViewStateService.ViewState>
-                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                     <x:Boolean x:Key="IsPinned">False</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
@@ -302,10 +259,10 @@
                   </ui:Click.Target>
                 </ui:Click>
               </Sequence>
-              <Sequence DisplayName="Update Condition Fields" sap:VirtualizedContainerService.HintSize="569,66" sap2010:WorkflowViewState.IdRef="Sequence_5">
+              <Sequence DisplayName="Update Condition Fields" sap:VirtualizedContainerService.HintSize="376,776" sap2010:WorkflowViewState.IdRef="Sequence_5">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     <x:Boolean x:Key="IsPinned">False</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
@@ -370,7 +327,7 @@
         </ui:ForEachRow.Body>
       </ui:ForEachRow>
     </Sequence>
-    <Sequence DisplayName="Closing E-Folder" sap:VirtualizedContainerService.HintSize="376,66" sap2010:WorkflowViewState.IdRef="Sequence_10">
+    <Sequence DisplayName="Closing E-Folder" sap:VirtualizedContainerService.HintSize="787,66" sap2010:WorkflowViewState.IdRef="Sequence_10">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">False</x:Boolean>

@@ -5,7 +5,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1208,900</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>954,900</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Main2_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -78,6 +78,7 @@
       <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
       <AssemblyReference>UiPath.Persistence.Activities</AssemblyReference>
       <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
   <StateMachine InitialState="{x:Reference __ReferenceID3}" sap2010:Annotation.AnnotationText="[Process title]&#xA;[Process description]&#xA;[Additional information (e.g., author, contact information and applications involved and required external setup)]" DisplayName="General Business Process" sap:VirtualizedContainerService.HintSize="687,795" sap2010:WorkflowViewState.IdRef="StateMachine_1">
@@ -502,7 +503,7 @@
                           </Transition.Action>
                           <Transition.Condition>[SystemException is Nothing]</Transition.Condition>
                         </Transition>
-                        <Transition DisplayName="System Exception (failed initialization)" sap:VirtualizedContainerService.HintSize="479,1249" sap2010:WorkflowViewState.IdRef="Transition_3">
+                        <Transition DisplayName="System Exception (failed initialization)" sap:VirtualizedContainerService.HintSize="666,1641" sap2010:WorkflowViewState.IdRef="Transition_3">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <av:PointCollection x:Key="ConnectorLocation">350,109.666666666667 350,139.666666666667 82.8,139.666666666667 82.8,208</av:PointCollection>
@@ -565,18 +566,55 @@
                             </State>
                           </Transition.To>
                           <Transition.Action>
-                            <Sequence DisplayName="Create Action Center" sap:VirtualizedContainerService.HintSize="376,563" sap2010:WorkflowViewState.IdRef="Sequence_29">
+                            <Sequence DisplayName="Create Action Center" sap:VirtualizedContainerService.HintSize="563,955" sap2010:WorkflowViewState.IdRef="Sequence_29">
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
-                              <upae:CreateExternalTask ExternalTag="{x:Null}" TaskCatalog="{x:Null}" TaskOutput="{x:Null}" TimeoutMs="{x:Null}" DisplayName="Create External Task" sap:VirtualizedContainerService.HintSize="334,340" sap2010:WorkflowViewState.IdRef="CreateExternalTask_1" TaskPriority="[TaskPriority.Medium]" TaskTitle="[&quot;Pennymac: &quot; + SystemException.Message]">
-                                <upae:CreateExternalTask.TaskData>
-                                  <scg:Dictionary x:TypeArguments="x:String, Argument" />
-                                </upae:CreateExternalTask.TaskData>
-                              </upae:CreateExternalTask>
-                              <ui:LogMessage DisplayName="Log Message (initialization failure)" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_26" Level="Fatal" Message="[&quot;System exception at initialization: &quot; + SystemException.Message + &quot; at Source: &quot; + SystemException.Source]" />
+                              <If Condition="[SystemException.Message.Contains(&quot;Amerihome&quot;)]" DisplayName="Check if system exception needs to be push in action center" sap:VirtualizedContainerService.HintSize="521,732" sap2010:WorkflowViewState.IdRef="If_12">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <If.Then>
+                                  <Sequence DisplayName="Create Task and Send Email" sap:VirtualizedContainerService.HintSize="376,584" sap2010:WorkflowViewState.IdRef="Sequence_30">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <upae:CreateExternalTask ExternalTag="{x:Null}" TaskCatalog="{x:Null}" TaskOutput="{x:Null}" TimeoutMs="{x:Null}" DisplayName="Create External Task" sap:VirtualizedContainerService.HintSize="334,340" sap2010:WorkflowViewState.IdRef="CreateExternalTask_1" TaskPriority="[TaskPriority.Medium]" TaskTitle="[&quot;Amerihome: &quot; + SystemException.Message]">
+                                      <upae:CreateExternalTask.TaskData>
+                                        <scg:Dictionary x:TypeArguments="x:String, Argument" />
+                                      </upae:CreateExternalTask.TaskData>
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                    </upae:CreateExternalTask>
+                                    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke SendEmail workflow" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_26" UnSafe="False" WorkflowFileName="Utils\SendEmail.xaml">
+                                      <ui:InvokeWorkflowFile.Arguments>
+                                        <InArgument x:TypeArguments="x:String" x:Key="in_Recipient">[Config("EmailRecipients").ToString]</InArgument>
+                                        <InArgument x:TypeArguments="x:String" x:Key="in_Subject">Access to AmeriHome Portal failed</InArgument>
+                                        <InArgument x:TypeArguments="x:String" x:Key="in_Body">The bot was unable to Access the portal. Please address this issue. Thank you.</InArgument>
+                                        <InArgument x:TypeArguments="x:String" x:Key="in_AttachmentPath" />
+                                      </ui:InvokeWorkflowFile.Arguments>
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                    </ui:InvokeWorkflowFile>
+                                  </Sequence>
+                                </If.Then>
+                              </If>
+                              <ui:LogMessage DisplayName="Log Message (initialization failure)" sap:VirtualizedContainerService.HintSize="521,91" sap2010:WorkflowViewState.IdRef="LogMessage_26" Level="Fatal" Message="[&quot;System exception at initialization: &quot; + SystemException.Message + &quot; at Source: &quot; + SystemException.Source]" />
                             </Sequence>
                           </Transition.Action>
                           <Transition.Condition>[SystemException isNot Nothing]</Transition.Condition>
@@ -623,7 +661,7 @@
           </Transition.Action>
           <Transition.Condition>[TransactionItem IsNot Nothing]</Transition.Condition>
         </Transition>
-        <Transition sap2010:Annotation.AnnotationText="This is a simple mecanism to stop the process.&#xA;In reallife scenario you can stop the process when there is no more data to process or on a schedule." DisplayName="No Data" sap:VirtualizedContainerService.HintSize="450,853" sap2010:WorkflowViewState.IdRef="Transition_7">
+        <Transition sap2010:Annotation.AnnotationText="This is a simple mecanism to stop the process.&#xA;In reallife scenario you can stop the process when there is no more data to process or on a schedule." DisplayName="No Data" sap:VirtualizedContainerService.HintSize="671,1434" sap2010:WorkflowViewState.IdRef="Transition_7">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <av:PointCollection x:Key="ConnectorLocation">349.833333333333,324.333333333333 349.833333333333,354.333333333333 90,354.333333333333 90,327</av:PointCollection>
@@ -637,7 +675,52 @@
             <x:Reference>__ReferenceID1</x:Reference>
           </Transition.To>
           <Transition.Action>
-            <ui:LogMessage DisplayName="Log message (No more transations available)" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_30" Level="Info" Message="[&quot;Process finished due to no more transaction data&quot;]" />
+            <Sequence DisplayName="Send Email" sap:VirtualizedContainerService.HintSize="568,706" sap2010:WorkflowViewState.IdRef="Sequence_32">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <Sequence sap2010:Annotation.AnnotationText="Only send the email and attachment if file exist and is not empty." DisplayName="Read Attachment" sap:VirtualizedContainerService.HintSize="526,483" sap2010:WorkflowViewState.IdRef="Sequence_31">
+                <Sequence.Variables>
+                  <Variable x:TypeArguments="x:String" Name="FilePath" />
+                </Sequence.Variables>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <Assign DisplayName="Set File Path" sap:VirtualizedContainerService.HintSize="484,60" sap2010:WorkflowViewState.IdRef="Assign_28">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="x:String">[FilePath]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="x:String">[Config("LogFilePath").ToString + "\Loan Number\Amerihome_" + Date.Now.ToString("MMddyyyy") + "_Error.xlsx"]</InArgument>
+                  </Assign.Value>
+                </Assign>
+                <If Condition="[File.Exists(FilePath)]" DisplayName="Check if file exist" sap:VirtualizedContainerService.HintSize="484,260" sap2010:WorkflowViewState.IdRef="If_13">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <If.Then>
+                    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke SendEmail workflow" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_27" UnSafe="False" WorkflowFileName="Utils\SendEmail.xaml">
+                      <ui:InvokeWorkflowFile.Arguments>
+                        <InArgument x:TypeArguments="x:String" x:Key="in_Recipient">[Config("EmailRecipients").ToString]</InArgument>
+                        <InArgument x:TypeArguments="x:String" x:Key="in_Subject">AmeriHome Error File</InArgument>
+                        <InArgument x:TypeArguments="x:String" x:Key="in_Body">Please checked the attached file for loan number errors. Thank you.</InArgument>
+                        <InArgument x:TypeArguments="x:String" x:Key="in_AttachmentPath">[FilePath]</InArgument>
+                      </ui:InvokeWorkflowFile.Arguments>
+                    </ui:InvokeWorkflowFile>
+                  </If.Then>
+                </If>
+              </Sequence>
+              <ui:LogMessage DisplayName="Log message (No more transations available)" sap:VirtualizedContainerService.HintSize="526,91" sap2010:WorkflowViewState.IdRef="LogMessage_33" Level="Info" Message="[&quot;Process finished due to no more transaction data&quot;]" />
+            </Sequence>
           </Transition.Action>
           <Transition.Condition>[TransactionItem Is Nothing]</Transition.Condition>
         </Transition>
@@ -650,11 +733,7 @@
       <Variable x:TypeArguments="sd:DataRow" sap2010:Annotation.AnnotationText="Transaction item to be processed. The type of this variable can be changed to match the transaction type in the process. For example, when processing data from a spreadsheet that is read into a DataTable, this type can be changed to DataRow. " Name="TransactionItem" />
       <Variable x:TypeArguments="s:Exception" sap2010:Annotation.AnnotationText="Used during transitions between states to represent exceptions other than business exceptions." Name="SystemException" />
       <Variable x:TypeArguments="ui:BusinessRuleException" sap2010:Annotation.AnnotationText="Used during transitions between states and represents a situation that does not conform to the rules of the process being automated." Name="BusinessException" />
-      <Variable x:TypeArguments="x:Int32" sap2010:Annotation.AnnotationText="Sequential counter of transaction items." Name="TransactionNumber">
-        <Variable.Default>
-          <Literal x:TypeArguments="x:Int32" />
-        </Variable.Default>
-      </Variable>
+      <Variable x:TypeArguments="x:Int32" sap2010:Annotation.AnnotationText="Sequential counter of transaction items." Default="0" Name="TransactionNumber" />
       <Variable x:TypeArguments="scg:Dictionary(x:String, x:Object)" sap2010:Annotation.AnnotationText="Dictionary structure to store configuration data of the process (settings, constants and assets)." Name="Config" />
       <Variable x:TypeArguments="x:Int32" sap2010:Annotation.AnnotationText="Used to control the number of attempts of retrying the transaction processing in case of system exceptions." Default="0" Name="RetryNumber" />
       <Variable x:TypeArguments="x:String" sap2010:Annotation.AnnotationText="Optionally used to include additional information about the transaction item." Name="TransactionField2" />
