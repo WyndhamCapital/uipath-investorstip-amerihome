@@ -6,7 +6,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1206,2117</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1271,2052</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ProcessTransaction_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="64">
@@ -89,7 +89,7 @@
       <AssemblyReference>UiPath.Persistence.Activities</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Invoke major steps of the business process, which are usually implemented by multiple subworkflows.&#xA;&#xA;If a BusinessRuleException is thrown, the transaction is skipped. &#xA;If another kind of exception occurs, the current transaction can be retried. " DisplayName="Process" sap:VirtualizedContainerService.HintSize="770,2012" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Invoke major steps of the business process, which are usually implemented by multiple subworkflows.&#xA;&#xA;If a BusinessRuleException is thrown, the transaction is skipped. &#xA;If another kind of exception occurs, the current transaction can be retried. " DisplayName="Process" sap:VirtualizedContainerService.HintSize="802,1987" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:Boolean" Name="IsLoanFound" />
       <Variable x:TypeArguments="x:String" Name="LoanNumber" />
@@ -100,7 +100,7 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Assign DisplayName="Set Loan Number" sap:VirtualizedContainerService.HintSize="728,60" sap2010:WorkflowViewState.IdRef="Assign_1">
+    <Assign DisplayName="Set Loan Number" sap:VirtualizedContainerService.HintSize="760,60" sap2010:WorkflowViewState.IdRef="Assign_1">
       <Assign.To>
         <OutArgument x:TypeArguments="x:String">[LoanNumber]</OutArgument>
       </Assign.To>
@@ -108,7 +108,7 @@
         <InArgument x:TypeArguments="x:String">[in_TransactionItem("Loan Number").ToString]</InArgument>
       </Assign.Value>
     </Assign>
-    <Flowchart DisplayName="Process Loan Number" sap:VirtualizedContainerService.HintSize="728,1748" sap2010:WorkflowViewState.IdRef="Flowchart_1">
+    <Flowchart DisplayName="Process Loan Number" sap:VirtualizedContainerService.HintSize="760,1723" sap2010:WorkflowViewState.IdRef="Flowchart_1">
       <Flowchart.Variables>
         <Variable x:TypeArguments="x:Boolean" Name="IsMatch" />
         <Variable x:TypeArguments="x:Boolean" Name="IsConditions" />
@@ -121,24 +121,24 @@
           <av:Point x:Key="ShapeLocation">320,42.5</av:Point>
           <av:Size x:Key="ShapeSize">60,75</av:Size>
           <av:PointCollection x:Key="ConnectorLocation">350,117.5 350,167</av:PointCollection>
-          <x:Double x:Key="Width">694</x:Double>
-          <x:Double x:Key="Height">1712</x:Double>
+          <x:Double x:Key="Width">726</x:Double>
+          <x:Double x:Key="Height">1687</x:Double>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <Flowchart.StartNode>
-        <x:Reference>__ReferenceID14</x:Reference>
+        <x:Reference>__ReferenceID15</x:Reference>
       </Flowchart.StartNode>
-      <FlowStep x:Name="__ReferenceID11">
+      <FlowStep x:Name="__ReferenceID10">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
-            <av:Point x:Key="ShapeLocation">250,544.5</av:Point>
+            <av:Point x:Key="ShapeLocation">250,654.5</av:Point>
             <av:Size x:Key="ShapeSize">200,51</av:Size>
-            <av:PointCollection x:Key="ConnectorLocation">350,595.5 350,654.5</av:PointCollection>
+            <av:PointCollection x:Key="ConnectorLocation">350,705.5 350,756.5</av:PointCollection>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
-        <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Search Web" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Utils\Web\SearchLoanNumber.xaml">
+        <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Check Search Errors" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Utils\Web\CheckSearchErrors.xaml">
           <ui:InvokeWorkflowFile.Arguments>
-            <InArgument x:TypeArguments="x:String" x:Key="in_LoanNumber">[in_TransactionItem("Loan Number").ToString]</InArgument>
+            <OutArgument x:TypeArguments="x:Boolean" x:Key="out_IsFound">[IsLoanFound]</OutArgument>
           </ui:InvokeWorkflowFile.Arguments>
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -147,329 +147,308 @@
           </sap:WorkflowViewStateService.ViewState>
         </ui:InvokeWorkflowFile>
         <FlowStep.Next>
-          <FlowStep x:Name="__ReferenceID1">
+          <FlowDecision x:Name="__ReferenceID1" Condition="[IsLoanFound = True]" DisplayName="IsFound" sap:VirtualizedContainerService.HintSize="70,87" sap2010:WorkflowViewState.IdRef="FlowDecision_1">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <av:Point x:Key="ShapeLocation">250,654.5</av:Point>
-                <av:Size x:Key="ShapeSize">200,51</av:Size>
-                <av:PointCollection x:Key="ConnectorLocation">350,705.5 350,756.5</av:PointCollection>
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <av:Point x:Key="ShapeLocation">315,756.5</av:Point>
+                <av:Size x:Key="ShapeSize">70,87</av:Size>
+                <av:PointCollection x:Key="FalseConnector">385,800 560,800 560,877</av:PointCollection>
+                <x:String x:Key="FalseLabel">Not Found</x:String>
+                <x:String x:Key="TrueLabel">Found</x:String>
+                <av:PointCollection x:Key="TrueConnector">315,800 130,800 130,877</av:PointCollection>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Check Search Errors" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Utils\Web\CheckSearchErrors.xaml">
-              <ui:InvokeWorkflowFile.Arguments>
-                <OutArgument x:TypeArguments="x:Boolean" x:Key="out_IsFound">[IsLoanFound]</OutArgument>
-              </ui:InvokeWorkflowFile.Arguments>
-              <sap:WorkflowViewStateService.ViewState>
-                <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                </scg:Dictionary>
-              </sap:WorkflowViewStateService.ViewState>
-            </ui:InvokeWorkflowFile>
-            <FlowStep.Next>
-              <FlowDecision x:Name="__ReferenceID2" Condition="[IsLoanFound = True]" DisplayName="IsFound" sap:VirtualizedContainerService.HintSize="70,87" sap2010:WorkflowViewState.IdRef="FlowDecision_1">
+            <FlowDecision.True>
+              <FlowStep x:Name="__ReferenceID3">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                    <av:Point x:Key="ShapeLocation">315,756.5</av:Point>
-                    <av:Size x:Key="ShapeSize">70,87</av:Size>
-                    <av:PointCollection x:Key="FalseConnector">385,800 560,800 560,877</av:PointCollection>
-                    <x:String x:Key="FalseLabel">Not Found</x:String>
-                    <x:String x:Key="TrueLabel">Found</x:String>
-                    <av:PointCollection x:Key="TrueConnector">315,800 130,800 130,877</av:PointCollection>
+                    <av:Point x:Key="ShapeLocation">30,877</av:Point>
+                    <av:Size x:Key="ShapeSize">200,66</av:Size>
+                    <av:PointCollection x:Key="ConnectorLocation">230,910 350,910 350,976.5</av:PointCollection>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <FlowDecision.True>
-                  <FlowStep x:Name="__ReferenceID4">
+                <Sequence DisplayName="Loan Found" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_2">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[LoanNumber + &quot;: Loan found.&quot;]" />
+                  <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Check Search Results" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_9" UnSafe="False" WorkflowFileName="Utils\Web\ExtractSearchResults.xaml">
+                    <ui:InvokeWorkflowFile.Arguments>
+                      <InArgument x:TypeArguments="x:String" x:Key="in_LoanNumber">[LoanNumber]</InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="in_InvestorCase">[in_TransactionItem("Investor Case/Loan #").ToString]</InArgument>
+                      <OutArgument x:TypeArguments="x:Boolean" x:Key="out_IsMatch">[IsMatch]</OutArgument>
+                    </ui:InvokeWorkflowFile.Arguments>
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                        <av:Point x:Key="ShapeLocation">30,877</av:Point>
-                        <av:Size x:Key="ShapeSize">200,66</av:Size>
-                        <av:PointCollection x:Key="ConnectorLocation">230,910 350,910 350,976.5</av:PointCollection>
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <Sequence DisplayName="Loan Found" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_2">
-                      <sap:WorkflowViewStateService.ViewState>
-                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                        </scg:Dictionary>
-                      </sap:WorkflowViewStateService.ViewState>
-                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[LoanNumber + &quot;: Loan found.&quot;]" />
-                      <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Check Search Results" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_9" UnSafe="False" WorkflowFileName="Utils\Web\ExtractSearchResults.xaml">
-                        <ui:InvokeWorkflowFile.Arguments>
-                          <InArgument x:TypeArguments="x:String" x:Key="in_LoanNumber">[LoanNumber]</InArgument>
-                          <InArgument x:TypeArguments="x:String" x:Key="in_InvestorCase">[in_TransactionItem("Investor Case/Loan #").ToString]</InArgument>
-                          <OutArgument x:TypeArguments="x:Boolean" x:Key="out_IsMatch">[IsMatch]</OutArgument>
-                        </ui:InvokeWorkflowFile.Arguments>
+                  </ui:InvokeWorkflowFile>
+                </Sequence>
+                <FlowStep.Next>
+                  <FlowDecision x:Name="__ReferenceID2" Condition="[IsMatch = True]" DisplayName="IsMatch" sap:VirtualizedContainerService.HintSize="70,87" sap2010:WorkflowViewState.IdRef="FlowDecision_2">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <av:Point x:Key="ShapeLocation">315,976.5</av:Point>
+                        <av:Size x:Key="ShapeSize">70,87</av:Size>
+                        <av:PointCollection x:Key="FalseConnector">385,1020 560,1020 560,1097</av:PointCollection>
+                        <x:String x:Key="FalseLabel">Mismatch</x:String>
+                        <x:String x:Key="TrueLabel">Match</x:String>
+                        <av:PointCollection x:Key="TrueConnector">315,1020 130,1020 130,1097</av:PointCollection>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <FlowDecision.True>
+                      <FlowStep x:Name="__ReferenceID6">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            <av:Point x:Key="ShapeLocation">30,1097</av:Point>
+                            <av:Size x:Key="ShapeSize">200,66</av:Size>
+                            <av:PointCollection x:Key="ConnectorLocation">230,1130 350,1130 350,1196.5</av:PointCollection>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                      </ui:InvokeWorkflowFile>
-                    </Sequence>
-                    <FlowStep.Next>
-                      <FlowDecision x:Name="__ReferenceID3" Condition="[IsMatch = True]" DisplayName="IsMatch" sap:VirtualizedContainerService.HintSize="70,87" sap2010:WorkflowViewState.IdRef="FlowDecision_2">
-                        <sap:WorkflowViewStateService.ViewState>
-                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                            <av:Point x:Key="ShapeLocation">315,976.5</av:Point>
-                            <av:Size x:Key="ShapeSize">70,87</av:Size>
-                            <av:PointCollection x:Key="FalseConnector">385,1020 560,1020 560,1097</av:PointCollection>
-                            <x:String x:Key="FalseLabel">Mismatch</x:String>
-                            <x:String x:Key="TrueLabel">Match</x:String>
-                            <av:PointCollection x:Key="TrueConnector">315,1020 130,1020 130,1097</av:PointCollection>
-                          </scg:Dictionary>
-                        </sap:WorkflowViewStateService.ViewState>
-                        <FlowDecision.True>
-                          <FlowStep x:Name="__ReferenceID7">
+                        <Sequence DisplayName="Loan Match" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[LoanNumber + &quot;: Loan information matched, extracting conditions.&quot;]" />
+                          <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Open Loan Number" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_1" KeyModifiers="None" MouseButton="BTN_LEFT">
+                            <ui:Click.CursorPosition>
+                              <ui:CursorPosition Position="Center">
+                                <ui:CursorPosition.OffsetX>
+                                  <InArgument x:TypeArguments="x:Int32" />
+                                </ui:CursorPosition.OffsetX>
+                                <ui:CursorPosition.OffsetY>
+                                  <InArgument x:TypeArguments="x:Int32" />
+                                </ui:CursorPosition.OffsetY>
+                              </ui:CursorPosition>
+                            </ui:Click.CursorPosition>
+                            <ui:Click.Target>
+                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="1e45dcbd-5c6d-4c59-87bf-5852c54d85a3" InformativeScreenshot="1ddb5e79aa353bfcb13a55c764e91271" Selector="&lt;html app='chrome.exe' title='TPO Connect' /&gt;&lt;webctrl tag='DIV' innertext='{{LoanNumber}}' /&gt;">
+                                <ui:Target.TimeoutMS>
+                                  <InArgument x:TypeArguments="x:Int32" />
+                                </ui:Target.TimeoutMS>
+                                <ui:Target.WaitForReady>
+                                  <InArgument x:TypeArguments="ui:WaitForReady" />
+                                </ui:Target.WaitForReady>
+                              </ui:Target>
+                            </ui:Click.Target>
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                <av:Point x:Key="ShapeLocation">30,1097</av:Point>
-                                <av:Size x:Key="ShapeSize">200,66</av:Size>
-                                <av:PointCollection x:Key="ConnectorLocation">230,1130 350,1130 350,1196.5</av:PointCollection>
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
-                            <Sequence DisplayName="Loan Match" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_6">
-                              <sap:WorkflowViewStateService.ViewState>
-                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                </scg:Dictionary>
-                              </sap:WorkflowViewStateService.ViewState>
-                              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[LoanNumber + &quot;: Loan information matched, extracting conditions.&quot;]" />
-                              <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Open Loan Number" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_1" KeyModifiers="None" MouseButton="BTN_LEFT">
-                                <ui:Click.CursorPosition>
-                                  <ui:CursorPosition Position="Center">
-                                    <ui:CursorPosition.OffsetX>
-                                      <InArgument x:TypeArguments="x:Int32" />
-                                    </ui:CursorPosition.OffsetX>
-                                    <ui:CursorPosition.OffsetY>
-                                      <InArgument x:TypeArguments="x:Int32" />
-                                    </ui:CursorPosition.OffsetY>
-                                  </ui:CursorPosition>
-                                </ui:Click.CursorPosition>
-                                <ui:Click.Target>
-                                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="1e45dcbd-5c6d-4c59-87bf-5852c54d85a3" InformativeScreenshot="1ddb5e79aa353bfcb13a55c764e91271" Selector="&lt;html app='chrome.exe' title='TPO Connect' /&gt;&lt;webctrl tag='DIV' innertext='{{LoanNumber}}' /&gt;">
-                                    <ui:Target.TimeoutMS>
-                                      <InArgument x:TypeArguments="x:Int32" />
-                                    </ui:Target.TimeoutMS>
-                                    <ui:Target.WaitForReady>
-                                      <InArgument x:TypeArguments="ui:WaitForReady" />
-                                    </ui:Target.WaitForReady>
-                                  </ui:Target>
-                                </ui:Click.Target>
+                          </ui:Click>
+                          <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke ExtractConditions workflow" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_14" UnSafe="False" WorkflowFileName="Utils\Web\ExtractConditions.xaml">
+                            <ui:InvokeWorkflowFile.Arguments>
+                              <InArgument x:TypeArguments="x:String" x:Key="in_FilePath">[Environment.CurrentDirectory + "\Data\Temp"]</InArgument>
+                              <OutArgument x:TypeArguments="x:Boolean" x:Key="out_IsConditions">[IsConditions]</OutArgument>
+                            </ui:InvokeWorkflowFile.Arguments>
+                          </ui:InvokeWorkflowFile>
+                        </Sequence>
+                        <FlowStep.Next>
+                          <FlowDecision x:Name="__ReferenceID7" Condition="[IsConditions = True]" DisplayName="IsCondition" sap:VirtualizedContainerService.HintSize="70,87" sap2010:WorkflowViewState.IdRef="FlowDecision_3">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                <av:Point x:Key="ShapeLocation">315,1196.5</av:Point>
+                                <av:Size x:Key="ShapeSize">70,87</av:Size>
+                                <av:PointCollection x:Key="FalseConnector">385,1240 560,1240 560,1337</av:PointCollection>
+                                <x:String x:Key="FalseLabel">Empty Conditions</x:String>
+                                <x:String x:Key="TrueLabel">Has Conditions</x:String>
+                                <av:PointCollection x:Key="TrueConnector">315,1240 140,1240 140,1337</av:PointCollection>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <FlowDecision.True>
+                              <FlowStep x:Name="__ReferenceID9">
                                 <sap:WorkflowViewStateService.ViewState>
                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                    <av:Point x:Key="ShapeLocation">40,1337</av:Point>
+                                    <av:Size x:Key="ShapeSize">200,66</av:Size>
+                                    <av:PointCollection x:Key="ConnectorLocation">140,1403 140,1490 260,1490</av:PointCollection>
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
-                              </ui:Click>
-                              <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke ExtractConditions workflow" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_14" UnSafe="False" WorkflowFileName="Utils\Web\ExtractConditions.xaml">
-                                <ui:InvokeWorkflowFile.Arguments>
-                                  <InArgument x:TypeArguments="x:String" x:Key="in_FilePath">[Environment.CurrentDirectory + "\Data\Temp"]</InArgument>
-                                  <OutArgument x:TypeArguments="x:Boolean" x:Key="out_IsConditions">[IsConditions]</OutArgument>
-                                </ui:InvokeWorkflowFile.Arguments>
-                              </ui:InvokeWorkflowFile>
-                            </Sequence>
-                            <FlowStep.Next>
-                              <FlowDecision x:Name="__ReferenceID8" Condition="[IsConditions = True]" DisplayName="IsCondition" sap:VirtualizedContainerService.HintSize="70,87" sap2010:WorkflowViewState.IdRef="FlowDecision_3">
-                                <sap:WorkflowViewStateService.ViewState>
-                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                    <av:Point x:Key="ShapeLocation">315,1196.5</av:Point>
-                                    <av:Size x:Key="ShapeSize">70,87</av:Size>
-                                    <av:PointCollection x:Key="FalseConnector">385,1240 560,1240 560,1337</av:PointCollection>
-                                    <x:String x:Key="FalseLabel">Empty Conditions</x:String>
-                                    <x:String x:Key="TrueLabel">Has Conditions</x:String>
-                                    <av:PointCollection x:Key="TrueConnector">315,1240 140,1240 140,1337</av:PointCollection>
-                                  </scg:Dictionary>
-                                </sap:WorkflowViewStateService.ViewState>
-                                <FlowDecision.True>
-                                  <FlowStep x:Name="__ReferenceID10">
+                                <Sequence DisplayName="Add Conditions" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                                  <Sequence.Variables>
+                                    <Variable x:TypeArguments="sd:DataTable" Name="dtConditions" />
+                                  </Sequence.Variables>
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="376,91" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="Info" Message="[LoanNumber + &quot;: Found conditions, proceeding adding new conditions.&quot;]" />
+                                  <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke AddConditions workflow" sap:VirtualizedContainerService.HintSize="376,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_16" UnSafe="False" WorkflowFileName="Utils\Encompass\AddConditions.xaml">
+                                    <ui:InvokeWorkflowFile.Arguments>
+                                      <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_dtConditions">[dtConditions]</OutArgument>
+                                      <InArgument x:TypeArguments="x:String" x:Key="in_LoanNumber">[LoanNumber]</InArgument>
+                                    </ui:InvokeWorkflowFile.Arguments>
+                                  </ui:InvokeWorkflowFile>
+                                  <Sequence DisplayName="Conditions Log" sap:VirtualizedContainerService.HintSize="376,331" sap2010:WorkflowViewState.IdRef="Sequence_12">
                                     <sap:WorkflowViewStateService.ViewState>
                                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                        <av:Point x:Key="ShapeLocation">40,1337</av:Point>
-                                        <av:Size x:Key="ShapeSize">200,66</av:Size>
-                                        <av:PointCollection x:Key="ConnectorLocation">140,1403 140,1490 260,1490</av:PointCollection>
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                       </scg:Dictionary>
                                     </sap:WorkflowViewStateService.ViewState>
-                                    <Sequence DisplayName="Add Conditions" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_8">
-                                      <Sequence.Variables>
-                                        <Variable x:TypeArguments="sd:DataTable" Name="dtConditions" />
-                                      </Sequence.Variables>
+                                    <ui:AddDataColumn x:TypeArguments="x:Object" AllowDBNull="{x:Null}" AutoIncrement="{x:Null}" Column="{x:Null}" MaxLength="{x:Null}" Unique="{x:Null}" ColumnName="SellerNo" DataTable="[dtConditions]" DefaultValue="[LoanNumber]" DisplayName="Add Seller Number" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="AddDataColumn`1_1" />
+                                    <ui:AddDataColumn x:TypeArguments="x:Object" AllowDBNull="{x:Null}" AutoIncrement="{x:Null}" Column="{x:Null}" MaxLength="{x:Null}" Unique="{x:Null}" ColumnName="PennyMac No" DataTable="[dtConditions]" DefaultValue="[in_TransactionItem(&quot;Investor Case/Loan #&quot;).ToString]" DisplayName="Add PennyMac Number" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="AddDataColumn`1_2" />
+                                    <ui:AppendRange DataTable="[dtConditions]" DisplayName="Append Range" sap:VirtualizedContainerService.HintSize="334,115" sap2010:WorkflowViewState.IdRef="AppendRange_1" SheetName="Sheet1" WorkbookPath="[in_Config(&quot;LogFilePath&quot;).ToString + &quot;\Conditions\&quot; + Date.Now.ToString(&quot;MMddyyyy&quot;) + &quot;.xlsx&quot;]" />
+                                  </Sequence>
+                                </Sequence>
+                                <FlowStep.Next>
+                                  <FlowStep x:Name="__ReferenceID0">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <av:Point x:Key="ShapeLocation">260,1457</av:Point>
+                                        <av:Size x:Key="ShapeSize">200,66</av:Size>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <Sequence DisplayName="Close Loan Number" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_9">
                                       <sap:WorkflowViewStateService.ViewState>
                                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                         </scg:Dictionary>
                                       </sap:WorkflowViewStateService.ViewState>
-                                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="376,91" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="Info" Message="[LoanNumber + &quot;: Found conditions, proceeding adding new conditions.&quot;]" />
-                                      <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke AddConditions workflow" sap:VirtualizedContainerService.HintSize="376,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_16" UnSafe="False" WorkflowFileName="Utils\Encompass\AddConditions.xaml">
+                                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="Info" Message="[LoanNumber + &quot;: Closing loan number.&quot;]" />
+                                      <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke CloseLoanNumber workflow" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_19" UnSafe="False" WorkflowFileName="Utils\Encompass\CloseLoanNumber.xaml">
                                         <ui:InvokeWorkflowFile.Arguments>
-                                          <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_dtConditions">[dtConditions]</OutArgument>
-                                          <InArgument x:TypeArguments="x:String" x:Key="in_LoanNumber">[LoanNumber]</InArgument>
+                                          <scg:Dictionary x:TypeArguments="x:String, Argument" />
                                         </ui:InvokeWorkflowFile.Arguments>
                                       </ui:InvokeWorkflowFile>
-                                      <Sequence DisplayName="Conditions Log" sap:VirtualizedContainerService.HintSize="376,331" sap2010:WorkflowViewState.IdRef="Sequence_12">
-                                        <sap:WorkflowViewStateService.ViewState>
-                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                                          </scg:Dictionary>
-                                        </sap:WorkflowViewStateService.ViewState>
-                                        <ui:AddDataColumn x:TypeArguments="x:Object" AllowDBNull="{x:Null}" AutoIncrement="{x:Null}" Column="{x:Null}" MaxLength="{x:Null}" Unique="{x:Null}" ColumnName="SellerNo" DataTable="[dtConditions]" DefaultValue="[LoanNumber]" DisplayName="Add Seller Number" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="AddDataColumn`1_1" />
-                                        <ui:AddDataColumn x:TypeArguments="x:Object" AllowDBNull="{x:Null}" AutoIncrement="{x:Null}" Column="{x:Null}" MaxLength="{x:Null}" Unique="{x:Null}" ColumnName="PennyMac No" DataTable="[dtConditions]" DefaultValue="[in_TransactionItem(&quot;Investor Case/Loan #&quot;).ToString]" DisplayName="Add PennyMac Number" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="AddDataColumn`1_2" />
-                                        <ui:AppendRange DataTable="[dtConditions]" DisplayName="Append Range" sap:VirtualizedContainerService.HintSize="334,115" sap2010:WorkflowViewState.IdRef="AppendRange_1" SheetName="Sheet1" WorkbookPath="[in_Config(&quot;LogFilePath&quot;).ToString + &quot;\Conditions\&quot; + Date.Now.ToString(&quot;MMddyyyy&quot;) + &quot;.xlsx&quot;]" />
-                                      </Sequence>
+                                      <e:Pipeline_File_Exit_Popup DisplayName="Pipeline File Exit Popup" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="Pipeline_File_Exit_Popup_1" />
                                     </Sequence>
-                                    <FlowStep.Next>
-                                      <FlowStep x:Name="__ReferenceID0">
-                                        <sap:WorkflowViewStateService.ViewState>
-                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                            <av:Point x:Key="ShapeLocation">260,1457</av:Point>
-                                            <av:Size x:Key="ShapeSize">200,66</av:Size>
-                                          </scg:Dictionary>
-                                        </sap:WorkflowViewStateService.ViewState>
-                                        <Sequence DisplayName="Close Loan Number" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_9">
-                                          <sap:WorkflowViewStateService.ViewState>
-                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                            </scg:Dictionary>
-                                          </sap:WorkflowViewStateService.ViewState>
-                                          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="Info" Message="[LoanNumber + &quot;: Closing loan number.&quot;]" />
-                                          <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke CloseLoanNumber workflow" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_18" UnSafe="False" WorkflowFileName="Utils\Encompass\CloseLoanNumber.xaml">
-                                            <ui:InvokeWorkflowFile.Arguments>
-                                              <scg:Dictionary x:TypeArguments="x:String, Argument" />
-                                            </ui:InvokeWorkflowFile.Arguments>
-                                          </ui:InvokeWorkflowFile>
-                                          <e:Pipeline_File_Exit_Popup DisplayName="Pipeline File Exit Popup" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="Pipeline_File_Exit_Popup_1" />
-                                        </Sequence>
-                                      </FlowStep>
-                                    </FlowStep.Next>
                                   </FlowStep>
-                                </FlowDecision.True>
-                                <FlowDecision.False>
-                                  <FlowStep x:Name="__ReferenceID9">
-                                    <sap:WorkflowViewStateService.ViewState>
-                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                        <av:Point x:Key="ShapeLocation">460,1337</av:Point>
-                                        <av:Size x:Key="ShapeSize">200,66</av:Size>
-                                        <av:PointCollection x:Key="ConnectorLocation">560,1403 560,1490 460,1490</av:PointCollection>
-                                      </scg:Dictionary>
-                                    </sap:WorkflowViewStateService.ViewState>
-                                    <Sequence DisplayName="Empty Conditions" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_7">
-                                      <sap:WorkflowViewStateService.ViewState>
-                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                        </scg:Dictionary>
-                                      </sap:WorkflowViewStateService.ViewState>
-                                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Info" Message="[LoanNumber + &quot;: Empty conditions.&quot;]" />
-                                      <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Write Error" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_15" UnSafe="False" WorkflowFileName="Utils\WriteLog.xaml">
-                                        <ui:InvokeWorkflowFile.Arguments>
-                                          <InArgument x:TypeArguments="x:String" x:Key="in_LoanNumber">[LoanNumber]</InArgument>
-                                          <InArgument x:TypeArguments="x:String" x:Key="in_SiteName">AmeriHome</InArgument>
-                                          <InArgument x:TypeArguments="x:String" x:Key="in_Remarks">No New Conditions</InArgument>
-                                          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
-                                        </ui:InvokeWorkflowFile.Arguments>
-                                      </ui:InvokeWorkflowFile>
-                                    </Sequence>
-                                    <FlowStep.Next>
-                                      <x:Reference>__ReferenceID0</x:Reference>
-                                    </FlowStep.Next>
-                                  </FlowStep>
-                                </FlowDecision.False>
-                              </FlowDecision>
-                            </FlowStep.Next>
-                          </FlowStep>
-                        </FlowDecision.True>
-                        <FlowDecision.False>
-                          <FlowStep x:Name="__ReferenceID6">
-                            <sap:WorkflowViewStateService.ViewState>
-                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                <av:Point x:Key="ShapeLocation">460,1097</av:Point>
-                                <av:Size x:Key="ShapeSize">200,66</av:Size>
-                                <av:PointCollection x:Key="ConnectorLocation">660,1130 690,1130 690,1490 460,1490</av:PointCollection>
-                              </scg:Dictionary>
-                            </sap:WorkflowViewStateService.ViewState>
-                            <Sequence DisplayName="Loan Mismatch" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_5">
-                              <sap:WorkflowViewStateService.ViewState>
-                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                </scg:Dictionary>
-                              </sap:WorkflowViewStateService.ViewState>
-                              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="375,91" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[LoanNumber + &quot;: Loan information mismatched.&quot;]" />
-                              <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Write Error" sap:VirtualizedContainerService.HintSize="375,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_11" UnSafe="False" WorkflowFileName="Utils\WriteLog.xaml">
-                                <ui:InvokeWorkflowFile.Arguments>
-                                  <InArgument x:TypeArguments="x:String" x:Key="in_LoanNumber">[LoanNumber]</InArgument>
-                                  <InArgument x:TypeArguments="x:String" x:Key="in_SiteName">AmeriHome</InArgument>
-                                  <InArgument x:TypeArguments="x:String" x:Key="in_Remarks">Loan Info Mismatch</InArgument>
-                                  <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
-                                </ui:InvokeWorkflowFile.Arguments>
-                              </ui:InvokeWorkflowFile>
-                              <upae:CreateExternalTask ExternalTag="{x:Null}" TaskCatalog="{x:Null}" TaskOutput="{x:Null}" TimeoutMs="{x:Null}" DisplayName="Notify Action Center - Mismatch" sap:VirtualizedContainerService.HintSize="375,340" sap2010:WorkflowViewState.IdRef="CreateExternalTask_1" TaskPriority="[TaskPriority.Medium]" TaskTitle="[&quot;AmeriHome: loan number &quot; + LoanNumber + &quot; mismatch.&quot;]">
-                                <upae:CreateExternalTask.TaskData>
-                                  <scg:Dictionary x:TypeArguments="x:String, Argument" />
-                                </upae:CreateExternalTask.TaskData>
+                                </FlowStep.Next>
+                              </FlowStep>
+                            </FlowDecision.True>
+                            <FlowDecision.False>
+                              <FlowStep x:Name="__ReferenceID8">
                                 <sap:WorkflowViewStateService.ViewState>
                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                    <av:Point x:Key="ShapeLocation">460,1337</av:Point>
+                                    <av:Size x:Key="ShapeSize">200,66</av:Size>
+                                    <av:PointCollection x:Key="ConnectorLocation">560,1403 560,1490 460,1490</av:PointCollection>
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
-                              </upae:CreateExternalTask>
-                            </Sequence>
-                            <FlowStep.Next>
-                              <x:Reference>__ReferenceID0</x:Reference>
-                            </FlowStep.Next>
-                          </FlowStep>
-                        </FlowDecision.False>
-                      </FlowDecision>
-                    </FlowStep.Next>
-                  </FlowStep>
-                </FlowDecision.True>
-                <FlowDecision.False>
-                  <FlowStep x:Name="__ReferenceID5">
-                    <sap:WorkflowViewStateService.ViewState>
-                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                        <av:Point x:Key="ShapeLocation">460,877</av:Point>
-                        <av:Size x:Key="ShapeSize">200,66</av:Size>
-                        <av:PointCollection x:Key="ConnectorLocation">660,910 690,910 690,1490 460,1490</av:PointCollection>
-                      </scg:Dictionary>
-                    </sap:WorkflowViewStateService.ViewState>
-                    <Sequence DisplayName="Loan Not Found" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_3">
-                      <sap:WorkflowViewStateService.ViewState>
-                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                        </scg:Dictionary>
-                      </sap:WorkflowViewStateService.ViewState>
-                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[LoanNumber + &quot;: Loan not found.&quot;]" />
-                      <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Write Error" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_8" UnSafe="False" WorkflowFileName="Utils\WriteLog.xaml">
-                        <ui:InvokeWorkflowFile.Arguments>
-                          <InArgument x:TypeArguments="x:String" x:Key="in_LoanNumber">[LoanNumber]</InArgument>
-                          <InArgument x:TypeArguments="x:String" x:Key="in_SiteName">AmeriHome</InArgument>
-                          <InArgument x:TypeArguments="x:String" x:Key="in_Remarks">Loan not found</InArgument>
-                          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
-                        </ui:InvokeWorkflowFile.Arguments>
-                      </ui:InvokeWorkflowFile>
-                      <upae:CreateExternalTask ExternalTag="{x:Null}" TaskCatalog="{x:Null}" TaskOutput="{x:Null}" TimeoutMs="{x:Null}" DisplayName="Notify Action Center - Loan not found" sap:VirtualizedContainerService.HintSize="334,340" sap2010:WorkflowViewState.IdRef="CreateExternalTask_2" TaskPriority="[TaskPriority.Medium]" TaskTitle="[&quot;AmeriHome: loan number &quot; + LoanNumber + &quot; not found.&quot;]">
-                        <upae:CreateExternalTask.TaskData>
-                          <scg:Dictionary x:TypeArguments="x:String, Argument" />
-                        </upae:CreateExternalTask.TaskData>
+                                <Sequence DisplayName="Empty Conditions" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Info" Message="[LoanNumber + &quot;: Empty conditions.&quot;]" />
+                                  <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Write Error" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_15" UnSafe="False" WorkflowFileName="Utils\WriteLog.xaml">
+                                    <ui:InvokeWorkflowFile.Arguments>
+                                      <InArgument x:TypeArguments="x:String" x:Key="in_LoanNumber">[LoanNumber]</InArgument>
+                                      <InArgument x:TypeArguments="x:String" x:Key="in_SiteName">AmeriHome</InArgument>
+                                      <InArgument x:TypeArguments="x:String" x:Key="in_Remarks">No New Conditions</InArgument>
+                                      <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
+                                    </ui:InvokeWorkflowFile.Arguments>
+                                  </ui:InvokeWorkflowFile>
+                                </Sequence>
+                                <FlowStep.Next>
+                                  <x:Reference>__ReferenceID0</x:Reference>
+                                </FlowStep.Next>
+                              </FlowStep>
+                            </FlowDecision.False>
+                          </FlowDecision>
+                        </FlowStep.Next>
+                      </FlowStep>
+                    </FlowDecision.True>
+                    <FlowDecision.False>
+                      <FlowStep x:Name="__ReferenceID5">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            <av:Point x:Key="ShapeLocation">460,1097</av:Point>
+                            <av:Size x:Key="ShapeSize">200,66</av:Size>
+                            <av:PointCollection x:Key="ConnectorLocation">660,1130 690,1130 690,1490 460,1490</av:PointCollection>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                      </upae:CreateExternalTask>
-                    </Sequence>
-                    <FlowStep.Next>
-                      <x:Reference>__ReferenceID0</x:Reference>
-                    </FlowStep.Next>
-                  </FlowStep>
-                </FlowDecision.False>
-              </FlowDecision>
-            </FlowStep.Next>
-          </FlowStep>
+                        <Sequence DisplayName="Loan Mismatch" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="375,91" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[LoanNumber + &quot;: Loan information mismatched.&quot;]" />
+                          <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Write Error" sap:VirtualizedContainerService.HintSize="375,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_11" UnSafe="False" WorkflowFileName="Utils\WriteLog.xaml">
+                            <ui:InvokeWorkflowFile.Arguments>
+                              <InArgument x:TypeArguments="x:String" x:Key="in_LoanNumber">[LoanNumber]</InArgument>
+                              <InArgument x:TypeArguments="x:String" x:Key="in_SiteName">AmeriHome</InArgument>
+                              <InArgument x:TypeArguments="x:String" x:Key="in_Remarks">Loan Info Mismatch</InArgument>
+                              <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
+                            </ui:InvokeWorkflowFile.Arguments>
+                          </ui:InvokeWorkflowFile>
+                          <upae:CreateExternalTask ExternalTag="{x:Null}" TaskCatalog="{x:Null}" TaskOutput="{x:Null}" TimeoutMs="{x:Null}" DisplayName="Notify Action Center - Mismatch" sap:VirtualizedContainerService.HintSize="375,340" sap2010:WorkflowViewState.IdRef="CreateExternalTask_1" TaskPriority="[TaskPriority.Medium]" TaskTitle="[&quot;AmeriHome: loan number &quot; + LoanNumber + &quot; mismatch.&quot;]">
+                            <upae:CreateExternalTask.TaskData>
+                              <scg:Dictionary x:TypeArguments="x:String, Argument" />
+                            </upae:CreateExternalTask.TaskData>
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </upae:CreateExternalTask>
+                        </Sequence>
+                        <FlowStep.Next>
+                          <x:Reference>__ReferenceID0</x:Reference>
+                        </FlowStep.Next>
+                      </FlowStep>
+                    </FlowDecision.False>
+                  </FlowDecision>
+                </FlowStep.Next>
+              </FlowStep>
+            </FlowDecision.True>
+            <FlowDecision.False>
+              <FlowStep x:Name="__ReferenceID4">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <av:Point x:Key="ShapeLocation">460,877</av:Point>
+                    <av:Size x:Key="ShapeSize">200,66</av:Size>
+                    <av:PointCollection x:Key="ConnectorLocation">660,910 690,910 690,1490 460,1490</av:PointCollection>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <Sequence DisplayName="Loan Not Found" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="375,91" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[LoanNumber + &quot;: Loan not found.&quot;]" />
+                  <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Write Error" sap:VirtualizedContainerService.HintSize="375,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_8" UnSafe="False" WorkflowFileName="Utils\WriteLog.xaml">
+                    <ui:InvokeWorkflowFile.Arguments>
+                      <InArgument x:TypeArguments="x:String" x:Key="in_LoanNumber">[LoanNumber]</InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="in_SiteName">AmeriHome</InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="in_Remarks">Loan not found</InArgument>
+                      <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
+                    </ui:InvokeWorkflowFile.Arguments>
+                  </ui:InvokeWorkflowFile>
+                  <upae:CreateExternalTask ExternalTag="{x:Null}" TaskCatalog="{x:Null}" TaskOutput="{x:Null}" TimeoutMs="{x:Null}" DisplayName="Notify Action Center - Loan not found" sap:VirtualizedContainerService.HintSize="375,340" sap2010:WorkflowViewState.IdRef="CreateExternalTask_2" TaskPriority="[TaskPriority.Medium]" TaskTitle="[&quot;AmeriHome: loan number &quot; + LoanNumber + &quot; not found.&quot;]">
+                    <upae:CreateExternalTask.TaskData>
+                      <scg:Dictionary x:TypeArguments="x:String, Argument" />
+                    </upae:CreateExternalTask.TaskData>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </upae:CreateExternalTask>
+                </Sequence>
+                <FlowStep.Next>
+                  <x:Reference>__ReferenceID0</x:Reference>
+                </FlowStep.Next>
+              </FlowStep>
+            </FlowDecision.False>
+          </FlowDecision>
         </FlowStep.Next>
       </FlowStep>
       <x:Reference>__ReferenceID1</x:Reference>
@@ -481,9 +460,8 @@
       <x:Reference>__ReferenceID7</x:Reference>
       <x:Reference>__ReferenceID8</x:Reference>
       <x:Reference>__ReferenceID9</x:Reference>
-      <x:Reference>__ReferenceID10</x:Reference>
       <x:Reference>__ReferenceID0</x:Reference>
-      <FlowStep x:Name="__ReferenceID14">
+      <FlowStep x:Name="__ReferenceID15">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <av:Point x:Key="ShapeLocation">250,167</av:Point>
@@ -501,7 +479,7 @@
           <ui:Delete ContinueOnError="True" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="Delete_1" Path="Data\Temp\Conditions.csv" />
         </Sequence>
         <FlowStep.Next>
-          <FlowStep x:Name="__ReferenceID13">
+          <FlowStep x:Name="__ReferenceID12">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <av:Point x:Key="ShapeLocation">250,287</av:Point>
@@ -530,7 +508,7 @@
               <e:Pipeline_File_Open Output="{x:Null}" DisplayName="Pipeline File Open" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="Pipeline_File_Open_1" LoanNumber="[LoanNumber]" />
               <ui:UiElementExists DisplayName="Check Locked File" Exists="[IsLocked]" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="UiElementExists_1">
                 <ui:UiElementExists.Target>
-                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="99bd4248-8f66-4652-b4c2-65257efae675" InformativeScreenshot="d0970891cf15e1b21c224f62d6aee871" Selector="&lt;wnd app='encompass.exe' cls='#32770' title='Encompass' /&gt;&lt;wnd ctrlid='65535' title='This loan is locked because portal is currently editing it. Do y*' /&gt;" TimeoutMS="5000">
+                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="99bd4248-8f66-4652-b4c2-65257efae675" InformativeScreenshot="d0970891cf15e1b21c224f62d6aee871" Selector="&lt;wnd app='encompass.exe' cls='#32770' title='Encompass' /&gt;&lt;wnd ctrlid='65535' title='This loan is locked*' /&gt;" TimeoutMS="10000">
                     <ui:Target.WaitForReady>
                       <InArgument x:TypeArguments="ui:WaitForReady" />
                     </ui:Target.WaitForReady>
@@ -543,28 +521,107 @@
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
               </ui:UiElementExists>
-              <e:Pipeline_File_Open_Popup DisplayName="Pipeline File Open Popup" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="Pipeline_File_Open_Popup_1" />
             </Sequence>
             <FlowStep.Next>
-              <FlowDecision x:Name="__ReferenceID12" Condition="[IsLocked = False]" DisplayName="IsLocked" sap:VirtualizedContainerService.HintSize="70,87" sap2010:WorkflowViewState.IdRef="FlowDecision_4" True="{x:Reference __ReferenceID11}">
+              <FlowDecision x:Name="__ReferenceID11" Condition="[IsLocked = False]" DisplayName="IsLocked" sap:VirtualizedContainerService.HintSize="70,87" sap2010:WorkflowViewState.IdRef="FlowDecision_4">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     <av:Point x:Key="ShapeLocation">315,406.5</av:Point>
                     <av:Size x:Key="ShapeSize">70,87</av:Size>
-                    <av:PointCollection x:Key="FalseConnector">345,960 520,960 520,1037</av:PointCollection>
+                    <av:PointCollection x:Key="FalseConnector">385,450 560,450 560,547</av:PointCollection>
                     <x:String x:Key="FalseLabel">Locked</x:String>
                     <x:String x:Key="TrueLabel">Not Locked</x:String>
-                    <av:PointCollection x:Key="TrueConnector">315,450 220,450 220,570 250,570</av:PointCollection>
+                    <av:PointCollection x:Key="TrueConnector">315,450 140,450 140,547</av:PointCollection>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
+                <FlowDecision.True>
+                  <FlowStep x:Name="__ReferenceID14">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <av:Point x:Key="ShapeLocation">40,547</av:Point>
+                        <av:Size x:Key="ShapeSize">200,66</av:Size>
+                        <av:PointCollection x:Key="ConnectorLocation">240,580 350,580 350,654.5</av:PointCollection>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <Sequence DisplayName="File Not Locked" sap:VirtualizedContainerService.HintSize="376,266" sap2010:WorkflowViewState.IdRef="Sequence_16">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <e:Pipeline_File_Open_Popup DisplayName="Pipeline File Open Popup" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="Pipeline_File_Open_Popup_2" />
+                      <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Search Web" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_20" UnSafe="False" WorkflowFileName="Utils\Web\SearchLoanNumber.xaml">
+                        <ui:InvokeWorkflowFile.Arguments>
+                          <InArgument x:TypeArguments="x:String" x:Key="in_LoanNumber">[in_TransactionItem("Loan Number").ToString]</InArgument>
+                        </ui:InvokeWorkflowFile.Arguments>
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                      </ui:InvokeWorkflowFile>
+                    </Sequence>
+                    <FlowStep.Next>
+                      <x:Reference>__ReferenceID10</x:Reference>
+                    </FlowStep.Next>
+                  </FlowStep>
+                </FlowDecision.True>
+                <FlowDecision.False>
+                  <FlowStep x:Name="__ReferenceID13">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <av:Point x:Key="ShapeLocation">460,547</av:Point>
+                        <av:Size x:Key="ShapeSize">200,66</av:Size>
+                        <av:PointCollection x:Key="ConnectorLocation">607.5,527.04 637.5,527.04 637.5,1327.04 397.5,1327.04</av:PointCollection>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <Sequence DisplayName="File Locked" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_17">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_12" Level="Info" Message="[LoanNumber + &quot;: Loan number is locked.&quot;]" />
+                      <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Write Error" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_21" UnSafe="False" WorkflowFileName="Utils\WriteLog.xaml">
+                        <ui:InvokeWorkflowFile.Arguments>
+                          <InArgument x:TypeArguments="x:String" x:Key="in_LoanNumber">[LoanNumber]</InArgument>
+                          <InArgument x:TypeArguments="x:String" x:Key="in_SiteName">AmeriHome</InArgument>
+                          <InArgument x:TypeArguments="x:String" x:Key="in_Remarks">Loan Number is Locked</InArgument>
+                          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
+                        </ui:InvokeWorkflowFile.Arguments>
+                      </ui:InvokeWorkflowFile>
+                      <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" ContinueOnError="True" DisplayName="Click No" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_2" KeyModifiers="None" MouseButton="BTN_LEFT">
+                        <ui:Click.CursorPosition>
+                          <ui:CursorPosition Position="Center">
+                            <ui:CursorPosition.OffsetX>
+                              <InArgument x:TypeArguments="x:Int32" />
+                            </ui:CursorPosition.OffsetX>
+                            <ui:CursorPosition.OffsetY>
+                              <InArgument x:TypeArguments="x:Int32" />
+                            </ui:CursorPosition.OffsetY>
+                          </ui:CursorPosition>
+                        </ui:Click.CursorPosition>
+                        <ui:Click.Target>
+                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="9d0ff920-086d-4cb2-953e-0fd544e0135a" InformativeScreenshot="e2c18c59a0d7a437ce1470e1ea20693b" Selector="&lt;wnd app='encompass.exe' cls='#32770' title='Encompass' /&gt;&lt;wnd ctrlid='7' title='&amp;amp;No' /&gt;" TimeoutMS="5000">
+                            <ui:Target.WaitForReady>
+                              <InArgument x:TypeArguments="ui:WaitForReady" />
+                            </ui:Target.WaitForReady>
+                          </ui:Target>
+                        </ui:Click.Target>
+                      </ui:Click>
+                    </Sequence>
+                  </FlowStep>
+                </FlowDecision.False>
               </FlowDecision>
             </FlowStep.Next>
           </FlowStep>
         </FlowStep.Next>
       </FlowStep>
+      <x:Reference>__ReferenceID11</x:Reference>
       <x:Reference>__ReferenceID12</x:Reference>
       <x:Reference>__ReferenceID13</x:Reference>
+      <x:Reference>__ReferenceID14</x:Reference>
     </Flowchart>
   </Sequence>
 </Activity>

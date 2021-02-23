@@ -3,7 +3,7 @@
   "description": "Robotic Enterprise Framework",
   "main": "Main.xaml",
   "dependencies": {
-    "EncompassLib": "[1.0.43]",
+    "EncompassLib": "[1.0.44]",
     "UiPath.Excel.Activities": "[2.9.3]",
     "UiPath.Mail.Activities": "[1.9.5]",
     "UiPath.Persistence.Activities": "[1.1.9]",

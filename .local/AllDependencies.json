@@ -84,7 +84,7 @@
           "lib/DocumentFormat.OpenXml.dll": {}
         }
       },
-      "EncompassLib/1.0.43": {
+      "EncompassLib/1.0.44": {
         "type": "package",
         "dependencies": {
           "UiPath.Excel.Activities": "2.9.3",
@@ -97,12 +97,12 @@
         },
         "runtime": {
           "lib/net45/EncompassLib.dll": {},
-          "lib/net45/EncompassLib_Expressions_15135196.dll": {},
+          "lib/net45/EncompassLib_Expressions_23889976.dll": {},
           "lib/net45/EncompassLib_Expressions_2757872.dll": {},
-          "lib/net45/EncompassLib_Expressions_45966083.dll": {},
-          "lib/net45/EncompassLib_Expressions_50903951.dll": {},
-          "lib/net45/EncompassLib_Expressions_51071182.dll": {},
-          "lib/net45/EncompassLib_Expressions_56919532.dll": {}
+          "lib/net45/EncompassLib_Expressions_30630986.dll": {},
+          "lib/net45/EncompassLib_Expressions_38668936.dll": {},
+          "lib/net45/EncompassLib_Expressions_41035000.dll": {},
+          "lib/net45/EncompassLib_Expressions_42633357.dll": {}
         }
       },
       "Extended.Wpf.Toolkit/3.8.1": {
@@ -1840,13 +1840,13 @@
         "lib/DocumentFormat.OpenXml.dll"
       ]
     },
-    "EncompassLib/1.0.43": {
-      "sha512": "qlFXecVLGSxtBAl8pIzGbKf/PInwH61AFE62PzodtAEesLW78rfl0KWekfLi727UNwrK0nHM7YwYaws9ELITrg==",
+    "EncompassLib/1.0.44": {
+      "sha512": "OOF5afn7TXhkTfb/qU4Aaq/+MJxodKqgrVggWvxMRVxZNnjm4+lvz1FznJ+x8iz4EDply/MTzgIElR2C/5qCHg==",
       "type": "package",
-      "path": "encompasslib/1.0.43",
+      "path": "encompasslib/1.0.44",
       "files": [
         ".nupkg.metadata",
-        "encompasslib.1.0.43.nupkg.sha512",
+        "encompasslib.1.0.44.nupkg.sha512",
         "encompasslib.nuspec",
         "lib/net45/.gitattributes",
         "lib/net45/.settings/Release/settings-1a5b880a.json",
@@ -1855,12 +1855,12 @@
         "lib/net45/.settings/Release/settings-9e9290da.json",
         "lib/net45/.settings/Release/settings-a1b2dac1.json",
         "lib/net45/EncompassLib.dll",
-        "lib/net45/EncompassLib_Expressions_15135196.dll",
+        "lib/net45/EncompassLib_Expressions_23889976.dll",
         "lib/net45/EncompassLib_Expressions_2757872.dll",
-        "lib/net45/EncompassLib_Expressions_45966083.dll",
-        "lib/net45/EncompassLib_Expressions_50903951.dll",
-        "lib/net45/EncompassLib_Expressions_51071182.dll",
-        "lib/net45/EncompassLib_Expressions_56919532.dll",
+        "lib/net45/EncompassLib_Expressions_30630986.dll",
+        "lib/net45/EncompassLib_Expressions_38668936.dll",
+        "lib/net45/EncompassLib_Expressions_41035000.dll",
+        "lib/net45/EncompassLib_Expressions_42633357.dll",
         "lib/net45/README.md",
         "lib/net45/project.json"
       ]
@@ -3670,7 +3670,7 @@
   "projectFileDependencyGroups": {
     "": [],
     ".NETFramework,Version=v4.6.1": [
-      "EncompassLib >= 1.0.43 <= 1.0.43",
+      "EncompassLib >= 1.0.44 <= 1.0.44",
       "UiPath.Excel.Activities >= 2.9.3 <= 2.9.3",
       "UiPath.Mail.Activities >= 1.9.5 <= 1.9.5",
       "UiPath.Persistence.Activities >= 1.1.9 <= 1.1.9",
@@ -3695,7 +3695,7 @@
           "EncompassLib": {
             "include": "Runtime",
             "target": "Package",
-            "version": "[1.0.43, 1.0.43]"
+            "version": "[1.0.44, 1.0.44]"
           },
           "UiPath.Excel.Activities": {
             "include": "Runtime",
