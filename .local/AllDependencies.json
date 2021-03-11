@@ -84,7 +84,7 @@
           "lib/DocumentFormat.OpenXml.dll": {}
         }
       },
-      "EncompassLib/1.0.44": {
+      "EncompassLib/1.0.53": {
         "type": "package",
         "dependencies": {
           "UiPath.Excel.Activities": "2.9.3",
@@ -97,12 +97,17 @@
         },
         "runtime": {
           "lib/net45/EncompassLib.dll": {},
-          "lib/net45/EncompassLib_Expressions_23889976.dll": {},
-          "lib/net45/EncompassLib_Expressions_2757872.dll": {},
-          "lib/net45/EncompassLib_Expressions_30630986.dll": {},
-          "lib/net45/EncompassLib_Expressions_38668936.dll": {},
-          "lib/net45/EncompassLib_Expressions_41035000.dll": {},
-          "lib/net45/EncompassLib_Expressions_42633357.dll": {}
+          "lib/net45/EncompassLib_Expressions_11670670.dll": {},
+          "lib/net45/EncompassLib_Expressions_13247650.dll": {},
+          "lib/net45/EncompassLib_Expressions_2159009.dll": {},
+          "lib/net45/EncompassLib_Expressions_32668979.dll": {},
+          "lib/net45/EncompassLib_Expressions_54395000.dll": {},
+          "lib/net45/EncompassLib_Expressions_56762684.dll": {},
+          "lib/net45/EncompassLib_Expressions_57624703.dll": {},
+          "lib/net45/EncompassLib_Expressions_59410788.dll": {},
+          "lib/net45/EncompassLib_Expressions_61306625.dll": {},
+          "lib/net45/EncompassLib_Expressions_63319983.dll": {},
+          "lib/net45/EncompassLib_Expressions_64764387.dll": {}
         }
       },
       "Extended.Wpf.Toolkit/3.8.1": {
@@ -1840,13 +1845,13 @@
         "lib/DocumentFormat.OpenXml.dll"
       ]
     },
-    "EncompassLib/1.0.44": {
-      "sha512": "OOF5afn7TXhkTfb/qU4Aaq/+MJxodKqgrVggWvxMRVxZNnjm4+lvz1FznJ+x8iz4EDply/MTzgIElR2C/5qCHg==",
+    "EncompassLib/1.0.53": {
+      "sha512": "16ffLbWBVBTAPYIzrS1I5/LJEVcIsXSAI/lGjFXSBA4f1Fs0IVTg7HGvKv12hRllRmPCbbeRKUKjwXV0zL5+Zw==",
       "type": "package",
-      "path": "encompasslib/1.0.44",
+      "path": "encompasslib/1.0.53",
       "files": [
         ".nupkg.metadata",
-        "encompasslib.1.0.44.nupkg.sha512",
+        "encompasslib.1.0.53.nupkg.sha512",
         "encompasslib.nuspec",
         "lib/net45/.gitattributes",
         "lib/net45/.settings/Release/settings-1a5b880a.json",
@@ -1855,12 +1860,17 @@
         "lib/net45/.settings/Release/settings-9e9290da.json",
         "lib/net45/.settings/Release/settings-a1b2dac1.json",
         "lib/net45/EncompassLib.dll",
-        "lib/net45/EncompassLib_Expressions_23889976.dll",
-        "lib/net45/EncompassLib_Expressions_2757872.dll",
-        "lib/net45/EncompassLib_Expressions_30630986.dll",
-        "lib/net45/EncompassLib_Expressions_38668936.dll",
-        "lib/net45/EncompassLib_Expressions_41035000.dll",
-        "lib/net45/EncompassLib_Expressions_42633357.dll",
+        "lib/net45/EncompassLib_Expressions_11670670.dll",
+        "lib/net45/EncompassLib_Expressions_13247650.dll",
+        "lib/net45/EncompassLib_Expressions_2159009.dll",
+        "lib/net45/EncompassLib_Expressions_32668979.dll",
+        "lib/net45/EncompassLib_Expressions_54395000.dll",
+        "lib/net45/EncompassLib_Expressions_56762684.dll",
+        "lib/net45/EncompassLib_Expressions_57624703.dll",
+        "lib/net45/EncompassLib_Expressions_59410788.dll",
+        "lib/net45/EncompassLib_Expressions_61306625.dll",
+        "lib/net45/EncompassLib_Expressions_63319983.dll",
+        "lib/net45/EncompassLib_Expressions_64764387.dll",
         "lib/net45/README.md",
         "lib/net45/project.json"
       ]
@@ -3670,7 +3680,7 @@
   "projectFileDependencyGroups": {
     "": [],
     ".NETFramework,Version=v4.6.1": [
-      "EncompassLib >= 1.0.44 <= 1.0.44",
+      "EncompassLib >= 1.0.53 <= 1.0.53",
       "UiPath.Excel.Activities >= 2.9.3 <= 2.9.3",
       "UiPath.Mail.Activities >= 1.9.5 <= 1.9.5",
       "UiPath.Persistence.Activities >= 1.1.9 <= 1.1.9",
@@ -3695,7 +3705,7 @@
           "EncompassLib": {
             "include": "Runtime",
             "target": "Package",
-            "version": "[1.0.44, 1.0.44]"
+            "version": "[1.0.53, 1.0.53]"
           },
           "UiPath.Excel.Activities": {
             "include": "Runtime",

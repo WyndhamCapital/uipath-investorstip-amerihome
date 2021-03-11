@@ -188,7 +188,7 @@
     {
       "Package": {
         "Id": "EncompassLib",
-        "Version": "1.0.44"
+        "Version": "1.0.53"
       },
       "Assemblies": [
         "D:\\Users\\NSBOT1.IS\\.nuget\\packages\\aforge/2.2.5\\lib/AForge.dll",
@@ -199,13 +199,18 @@
         "D:\\Users\\NSBOT1.IS\\.nuget\\packages\\closedxml/0.87.1\\lib/net40/ClosedXML.dll",
         "D:\\Users\\NSBOT1.IS\\.nuget\\packages\\csvhelper/2.13.5\\lib/net40-client/CsvHelper.dll",
         "D:\\Users\\NSBOT1.IS\\.nuget\\packages\\documentformat.openxml/2.5.0\\lib/DocumentFormat.OpenXml.dll",
-        "D:\\Users\\NSBOT1.IS\\.nuget\\packages\\encompasslib/1.0.44\\lib/net45/EncompassLib.dll",
-        "D:\\Users\\NSBOT1.IS\\.nuget\\packages\\encompasslib/1.0.44\\lib/net45/EncompassLib_Expressions_23889976.dll",
-        "D:\\Users\\NSBOT1.IS\\.nuget\\packages\\encompasslib/1.0.44\\lib/net45/EncompassLib_Expressions_2757872.dll",
-        "D:\\Users\\NSBOT1.IS\\.nuget\\packages\\encompasslib/1.0.44\\lib/net45/EncompassLib_Expressions_30630986.dll",
-        "D:\\Users\\NSBOT1.IS\\.nuget\\packages\\encompasslib/1.0.44\\lib/net45/EncompassLib_Expressions_38668936.dll",
-        "D:\\Users\\NSBOT1.IS\\.nuget\\packages\\encompasslib/1.0.44\\lib/net45/EncompassLib_Expressions_41035000.dll",
-        "D:\\Users\\NSBOT1.IS\\.nuget\\packages\\encompasslib/1.0.44\\lib/net45/EncompassLib_Expressions_42633357.dll",
+        "D:\\Users\\NSBOT1.IS\\.nuget\\packages\\encompasslib/1.0.53\\lib/net45/EncompassLib.dll",
+        "D:\\Users\\NSBOT1.IS\\.nuget\\packages\\encompasslib/1.0.53\\lib/net45/EncompassLib_Expressions_11670670.dll",
+        "D:\\Users\\NSBOT1.IS\\.nuget\\packages\\encompasslib/1.0.53\\lib/net45/EncompassLib_Expressions_13247650.dll",
+        "D:\\Users\\NSBOT1.IS\\.nuget\\packages\\encompasslib/1.0.53\\lib/net45/EncompassLib_Expressions_2159009.dll",
+        "D:\\Users\\NSBOT1.IS\\.nuget\\packages\\encompasslib/1.0.53\\lib/net45/EncompassLib_Expressions_32668979.dll",
+        "D:\\Users\\NSBOT1.IS\\.nuget\\packages\\encompasslib/1.0.53\\lib/net45/EncompassLib_Expressions_54395000.dll",
+        "D:\\Users\\NSBOT1.IS\\.nuget\\packages\\encompasslib/1.0.53\\lib/net45/EncompassLib_Expressions_56762684.dll",
+        "D:\\Users\\NSBOT1.IS\\.nuget\\packages\\encompasslib/1.0.53\\lib/net45/EncompassLib_Expressions_57624703.dll",
+        "D:\\Users\\NSBOT1.IS\\.nuget\\packages\\encompasslib/1.0.53\\lib/net45/EncompassLib_Expressions_59410788.dll",
+        "D:\\Users\\NSBOT1.IS\\.nuget\\packages\\encompasslib/1.0.53\\lib/net45/EncompassLib_Expressions_61306625.dll",
+        "D:\\Users\\NSBOT1.IS\\.nuget\\packages\\encompasslib/1.0.53\\lib/net45/EncompassLib_Expressions_63319983.dll",
+        "D:\\Users\\NSBOT1.IS\\.nuget\\packages\\encompasslib/1.0.53\\lib/net45/EncompassLib_Expressions_64764387.dll",
         "D:\\Users\\NSBOT1.IS\\.nuget\\packages\\extended.wpf.toolkit/3.8.1\\lib/net40/Xceed.Wpf.AvalonDock.Themes.Aero.dll",
         "D:\\Users\\NSBOT1.IS\\.nuget\\packages\\extended.wpf.toolkit/3.8.1\\lib/net40/Xceed.Wpf.AvalonDock.Themes.Metro.dll",
         "D:\\Users\\NSBOT1.IS\\.nuget\\packages\\extended.wpf.toolkit/3.8.1\\lib/net40/Xceed.Wpf.AvalonDock.Themes.VS2010.dll",
@@ -322,7 +327,7 @@
         "D:\\Users\\NSBOT1.IS\\.nuget\\packages\\uipath.vision/2.2.0\\lib/net461/UiPath.Vision.Tesseract.dll",
         "D:\\Users\\NSBOT1.IS\\.nuget\\packages\\uipath.vision/2.2.0\\lib/net461/UiPath.Vision.dll"
       ],
-      "Path": "D:\\Users\\NSBOT1.IS\\.nuget\\packages\\encompasslib\\1.0.44"
+      "Path": "D:\\Users\\NSBOT1.IS\\.nuget\\packages\\encompasslib\\1.0.53"
     }
   ],
   "Conflicts": [],
@@ -388,7 +393,7 @@
     },
     "EncompassLib": {
       "Id": "EncompassLib",
-      "Version": "1.0.44",
+      "Version": "1.0.53",
       "Dependencies": [
         {
           "Item1": "UiPath.Excel.Activities",
@@ -1343,18 +1348,23 @@
     {
       "Package": {
         "Id": "EncompassLib",
-        "Version": "1.0.44"
+        "Version": "1.0.53"
       },
       "Assemblies": [
-        "D:\\Users\\NSBOT1.IS\\.nuget\\packages\\encompasslib\\1.0.44\\lib\\net45\\EncompassLib.dll",
-        "D:\\Users\\NSBOT1.IS\\.nuget\\packages\\encompasslib\\1.0.44\\lib\\net45\\EncompassLib_Expressions_23889976.dll",
-        "D:\\Users\\NSBOT1.IS\\.nuget\\packages\\encompasslib\\1.0.44\\lib\\net45\\EncompassLib_Expressions_2757872.dll",
-        "D:\\Users\\NSBOT1.IS\\.nuget\\packages\\encompasslib\\1.0.44\\lib\\net45\\EncompassLib_Expressions_30630986.dll",
-        "D:\\Users\\NSBOT1.IS\\.nuget\\packages\\encompasslib\\1.0.44\\lib\\net45\\EncompassLib_Expressions_38668936.dll",
-        "D:\\Users\\NSBOT1.IS\\.nuget\\packages\\encompasslib\\1.0.44\\lib\\net45\\EncompassLib_Expressions_41035000.dll",
-        "D:\\Users\\NSBOT1.IS\\.nuget\\packages\\encompasslib\\1.0.44\\lib\\net45\\EncompassLib_Expressions_42633357.dll"
+        "D:\\Users\\NSBOT1.IS\\.nuget\\packages\\encompasslib\\1.0.53\\lib\\net45\\EncompassLib.dll",
+        "D:\\Users\\NSBOT1.IS\\.nuget\\packages\\encompasslib\\1.0.53\\lib\\net45\\EncompassLib_Expressions_11670670.dll",
+        "D:\\Users\\NSBOT1.IS\\.nuget\\packages\\encompasslib\\1.0.53\\lib\\net45\\EncompassLib_Expressions_13247650.dll",
+        "D:\\Users\\NSBOT1.IS\\.nuget\\packages\\encompasslib\\1.0.53\\lib\\net45\\EncompassLib_Expressions_2159009.dll",
+        "D:\\Users\\NSBOT1.IS\\.nuget\\packages\\encompasslib\\1.0.53\\lib\\net45\\EncompassLib_Expressions_32668979.dll",
+        "D:\\Users\\NSBOT1.IS\\.nuget\\packages\\encompasslib\\1.0.53\\lib\\net45\\EncompassLib_Expressions_54395000.dll",
+        "D:\\Users\\NSBOT1.IS\\.nuget\\packages\\encompasslib\\1.0.53\\lib\\net45\\EncompassLib_Expressions_56762684.dll",
+        "D:\\Users\\NSBOT1.IS\\.nuget\\packages\\encompasslib\\1.0.53\\lib\\net45\\EncompassLib_Expressions_57624703.dll",
+        "D:\\Users\\NSBOT1.IS\\.nuget\\packages\\encompasslib\\1.0.53\\lib\\net45\\EncompassLib_Expressions_59410788.dll",
+        "D:\\Users\\NSBOT1.IS\\.nuget\\packages\\encompasslib\\1.0.53\\lib\\net45\\EncompassLib_Expressions_61306625.dll",
+        "D:\\Users\\NSBOT1.IS\\.nuget\\packages\\encompasslib\\1.0.53\\lib\\net45\\EncompassLib_Expressions_63319983.dll",
+        "D:\\Users\\NSBOT1.IS\\.nuget\\packages\\encompasslib\\1.0.53\\lib\\net45\\EncompassLib_Expressions_64764387.dll"
       ],
-      "Path": "D:\\Users\\NSBOT1.IS\\.nuget\\packages\\encompasslib\\1.0.44"
+      "Path": "D:\\Users\\NSBOT1.IS\\.nuget\\packages\\encompasslib\\1.0.53"
     },
     {
       "Package": {
